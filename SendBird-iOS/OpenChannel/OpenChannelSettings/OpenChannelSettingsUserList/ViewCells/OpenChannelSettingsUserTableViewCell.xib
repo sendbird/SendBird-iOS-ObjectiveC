@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OpenChannelSettingsUserTableViewCell" rowHeight="64" id="p6w-bg-dbK" customClass="OpenChannelSettingsUserTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="p6w-bg-dbK" id="8TR-Hm-LLT">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="63.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d3l-tM-Bk9" userLabel="Profile Image View">
+                        <rect key="frame" x="16" y="9.5" width="45" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="45" id="Oi9-H7-Lmo"/>
+                            <constraint firstAttribute="width" constant="45" id="z0u-mG-d6J"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <real key="value" value="22.5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73N-RG-9dF">
+                        <rect key="frame" x="78" y="21.5" width="281" height="21"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EDc-Wj-XZR" userLabel="Divider View">
+                        <rect key="frame" x="78" y="63" width="297" height="0.5"/>
+                        <color key="backgroundColor" name="color_user_list_divider"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="aaL-TO-GcZ"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="73N-RG-9dF" firstAttribute="leading" secondItem="EDc-Wj-XZR" secondAttribute="leading" id="95n-iQ-QMs"/>
+                    <constraint firstAttribute="trailing" secondItem="73N-RG-9dF" secondAttribute="trailing" constant="16" id="DRZ-l5-h85"/>
+                    <constraint firstItem="d3l-tM-Bk9" firstAttribute="leading" secondItem="8TR-Hm-LLT" secondAttribute="leading" constant="16" id="S6o-RA-Z3t"/>
+                    <constraint firstAttribute="bottom" secondItem="EDc-Wj-XZR" secondAttribute="bottom" id="VSo-my-KTy"/>
+                    <constraint firstItem="d3l-tM-Bk9" firstAttribute="centerY" secondItem="8TR-Hm-LLT" secondAttribute="centerY" id="Yx6-HG-EC1"/>
+                    <constraint firstItem="73N-RG-9dF" firstAttribute="leading" secondItem="d3l-tM-Bk9" secondAttribute="trailing" constant="17" id="ZOb-N0-jMZ"/>
+                    <constraint firstItem="73N-RG-9dF" firstAttribute="centerY" secondItem="8TR-Hm-LLT" secondAttribute="centerY" id="s6O-9S-O9Z"/>
+                </constraints>
+            </tableViewCellContentView>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="EDc-Wj-XZR" secondAttribute="trailing" id="LQN-xi-1vE"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="VyJ-HF-nMS"/>
+            <connections>
+                <outlet property="nicknameLabel" destination="73N-RG-9dF" id="XA8-z4-PKW"/>
+                <outlet property="profileImageView" destination="d3l-tM-Bk9" id="Pcd-LF-Oxq"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="color_user_list_divider">
+            <color red="0.79600000381469727" green="0.80800002813339233" blue="0.83099997043609619" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

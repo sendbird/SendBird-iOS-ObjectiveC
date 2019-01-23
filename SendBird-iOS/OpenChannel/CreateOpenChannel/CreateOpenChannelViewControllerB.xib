@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateOpenChannelViewControllerB">
+            <connections>
+                <outlet property="activityIndicatorView" destination="ZSq-45-Zve" id="DbC-sz-mh4"/>
+                <outlet property="bottomMargin" destination="1vi-Io-nd5" id="q06-eT-2Rs"/>
+                <outlet property="tableView" destination="GoX-Dm-oyu" id="pbe-H8-AY1"/>
+                <outlet property="view" destination="eVK-NR-gnh" id="kC9-w8-zNd"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="eVK-NR-gnh">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GoX-Dm-oyu">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ZSq-45-Zve" customClass="CustomActivityIndicatorView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                </activityIndicatorView>
+            </subviews>
+            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="GoX-Dm-oyu" secondAttribute="bottom" id="1vi-Io-nd5"/>
+                <constraint firstAttribute="trailing" secondItem="GoX-Dm-oyu" secondAttribute="trailing" id="949-rs-i7J"/>
+                <constraint firstItem="ZSq-45-Zve" firstAttribute="leading" secondItem="zjD-3O-G2c" secondAttribute="leading" id="ErP-la-ht7"/>
+                <constraint firstItem="ZSq-45-Zve" firstAttribute="top" secondItem="eVK-NR-gnh" secondAttribute="top" id="HxE-Sp-LQS"/>
+                <constraint firstItem="GoX-Dm-oyu" firstAttribute="top" secondItem="eVK-NR-gnh" secondAttribute="top" id="XwE-4N-enn"/>
+                <constraint firstItem="GoX-Dm-oyu" firstAttribute="leading" secondItem="eVK-NR-gnh" secondAttribute="leading" id="fZi-M0-y6A"/>
+                <constraint firstAttribute="bottom" secondItem="ZSq-45-Zve" secondAttribute="bottom" id="gUg-qQ-0J0"/>
+                <constraint firstItem="zjD-3O-G2c" firstAttribute="trailing" secondItem="ZSq-45-Zve" secondAttribute="trailing" id="z1P-AV-05l"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="zjD-3O-G2c"/>
+        </view>
+    </objects>
+</document>

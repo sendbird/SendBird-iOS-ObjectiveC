@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GroupChannelsViewController">
+            <connections>
+                <outlet property="emptyLabel" destination="a5v-4o-gYX" id="YoN-ag-7FR"/>
+                <outlet property="groupChannelsTableView" destination="O3d-JI-IYd" id="cX1-DZ-KAD"/>
+                <outlet property="loadingIndicatorView" destination="kFX-O0-aW3" id="neZ-Ts-DHL"/>
+                <outlet property="toastMessageLabel" destination="Jfp-8o-Wo6" id="M3a-Ed-PD4"/>
+                <outlet property="toastView" destination="MXh-9Q-EIw" id="7pW-BL-LBV"/>
+                <outlet property="view" destination="5co-sh-hfb" id="fVE-0Q-9fS"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="5co-sh-hfb">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O3d-JI-IYd" userLabel="Group Channels Table View">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="kFX-O0-aW3" customClass="CustomActivityIndicatorView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                </activityIndicatorView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There are no group channels" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5v-4o-gYX" userLabel="Empty Label">
+                    <rect key="frame" x="99.000000000000014" y="402" width="176.33333333333337" height="18"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                    <color key="textColor" name="color_empty_list_label"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MXh-9Q-EIw" userLabel="Toast View">
+                    <rect key="frame" x="127" y="350" width="120" height="111"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_toast_check" translatesAutoresizingMaskIntoConstraints="NO" id="azt-2L-RxN" userLabel="Toast Check Image View">
+                            <rect key="frame" x="40" y="33" width="40" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="EBS-zz-mb7"/>
+                                <constraint firstAttribute="height" constant="32" id="sNG-dW-CdJ"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jfp-8o-Wo6" userLabel="Toast Message Label">
+                            <rect key="frame" x="37.333333333333343" y="73" width="46" height="21"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                            <color key="textColor" name="color_toast_label"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" name="color_toast_bg"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="0zh-Du-8hM"/>
+                        <constraint firstItem="Jfp-8o-Wo6" firstAttribute="top" secondItem="azt-2L-RxN" secondAttribute="bottom" constant="8" id="1cZ-Cx-RzZ"/>
+                        <constraint firstItem="Jfp-8o-Wo6" firstAttribute="centerX" secondItem="MXh-9Q-EIw" secondAttribute="centerX" id="1kA-hb-t9f"/>
+                        <constraint firstAttribute="height" constant="111" id="7Db-p0-aH3"/>
+                        <constraint firstItem="azt-2L-RxN" firstAttribute="centerX" secondItem="MXh-9Q-EIw" secondAttribute="centerX" id="9PT-hA-1yh"/>
+                        <constraint firstItem="azt-2L-RxN" firstAttribute="top" secondItem="MXh-9Q-EIw" secondAttribute="top" constant="33" id="Al8-kI-4Ft"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" name="color_channel_list_bg"/>
+            <constraints>
+                <constraint firstItem="kFX-O0-aW3" firstAttribute="leading" secondItem="5co-sh-hfb" secondAttribute="leading" id="055-dO-pPA"/>
+                <constraint firstItem="MXh-9Q-EIw" firstAttribute="centerX" secondItem="5co-sh-hfb" secondAttribute="centerX" id="8t3-7t-zte"/>
+                <constraint firstItem="a5v-4o-gYX" firstAttribute="centerY" secondItem="7wF-xV-odA" secondAttribute="centerY" id="Dpo-Zf-bxr"/>
+                <constraint firstAttribute="bottom" secondItem="kFX-O0-aW3" secondAttribute="bottom" id="GoR-VT-fXT"/>
+                <constraint firstAttribute="trailing" secondItem="O3d-JI-IYd" secondAttribute="trailing" id="M2X-KX-Yed"/>
+                <constraint firstItem="O3d-JI-IYd" firstAttribute="leading" secondItem="5co-sh-hfb" secondAttribute="leading" id="Q32-JG-Dwc"/>
+                <constraint firstItem="O3d-JI-IYd" firstAttribute="top" secondItem="5co-sh-hfb" secondAttribute="top" id="RoY-C1-iVr"/>
+                <constraint firstItem="kFX-O0-aW3" firstAttribute="top" secondItem="5co-sh-hfb" secondAttribute="top" id="TCl-RK-2K1"/>
+                <constraint firstAttribute="bottom" secondItem="O3d-JI-IYd" secondAttribute="bottom" id="TYd-qQ-cPG"/>
+                <constraint firstItem="a5v-4o-gYX" firstAttribute="centerX" secondItem="7wF-xV-odA" secondAttribute="centerX" id="aLe-cp-BMR"/>
+                <constraint firstItem="MXh-9Q-EIw" firstAttribute="centerY" secondItem="5co-sh-hfb" secondAttribute="centerY" id="nH5-bo-h4U"/>
+                <constraint firstAttribute="trailing" secondItem="kFX-O0-aW3" secondAttribute="trailing" id="qJH-xC-HKH"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="7wF-xV-odA"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="img_toast_check" width="40" height="32"/>
+        <namedColor name="color_channel_list_bg">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="color_empty_list_label">
+            <color red="0.61599999670000005" green="0.63899999860000001" blue="0.68199998139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="color_toast_bg">
+            <color red="0.31000000239999997" green="0.31000000239999997" blue="0.31000000239999997" alpha="0.69999998809999997" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="color_toast_label">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

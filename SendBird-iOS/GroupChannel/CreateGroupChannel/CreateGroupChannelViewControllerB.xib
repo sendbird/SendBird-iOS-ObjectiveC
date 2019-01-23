@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateGroupChannelViewControllerB">
+            <connections>
+                <outlet property="channelNameTextField" destination="Lug-W9-PiX" id="c6z-Ie-3q8"/>
+                <outlet property="coverImageContainerView" destination="aBs-S2-J5B" id="d2l-Mg-hur"/>
+                <outlet property="doubleCoverImageContainerView" destination="nXC-ur-iID" id="sdN-qh-Qrh"/>
+                <outlet property="doubleCoverImageView1" destination="t6e-Rs-jY0" id="21d-BX-g5e"/>
+                <outlet property="doubleCoverImageView2" destination="cFb-eA-hmo" id="G4Y-jC-reb"/>
+                <outlet property="loadingIndicatorView" destination="PoJ-HZ-rte" id="gEw-vK-jPw"/>
+                <outlet property="quadrupleCoverImageContainerView" destination="UUU-Cn-HdB" id="TQ5-nk-asG"/>
+                <outlet property="quadrupleCoverImageView1" destination="2ZG-7e-9XS" id="Rqj-7B-JbA"/>
+                <outlet property="quadrupleCoverImageView2" destination="79k-Yg-NZE" id="n4d-ky-p2N"/>
+                <outlet property="quadrupleCoverImageView3" destination="YB8-6t-WwO" id="dc4-1R-JNv"/>
+                <outlet property="quadrupleCoverImageView4" destination="zkI-v3-omK" id="Btg-qb-Ki7"/>
+                <outlet property="singleCoverImageContainerView" destination="AIj-fe-ZVr" id="BAU-WY-IgI"/>
+                <outlet property="singleCoverImageView" destination="rZf-g3-q9P" id="cLO-eH-vUe"/>
+                <outlet property="tripleCoverImageContainerView" destination="Z1Y-XL-8yL" id="WNL-lx-hK1"/>
+                <outlet property="tripleCoverImageView1" destination="QM7-Yl-bkb" id="kvS-bN-11d"/>
+                <outlet property="tripleCoverImageView2" destination="q6o-Ls-SjC" id="hI0-vO-J0K"/>
+                <outlet property="tripleCoverImageView3" destination="AYA-aS-Q3W" id="Pwv-2N-iY5"/>
+                <outlet property="view" destination="UBB-lP-PuI" id="XCX-t5-zVB"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="UBB-lP-PuI">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S5y-pr-oBv" userLabel="Channel Cover Container View">
+                    <rect key="frame" x="0.0" y="44" width="375" height="120"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hvC-hW-5AE" userLabel="Bottom Border View">
+                            <rect key="frame" x="0.0" y="119" width="375" height="1"/>
+                            <color key="backgroundColor" red="0.73725490199999999" green="0.73333333329999995" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="22I-R6-vaY"/>
+                            </constraints>
+                        </view>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aBs-S2-J5B" userLabel="Cover Image Container View">
+                            <rect key="frame" x="16" y="10" width="100" height="100"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AIj-fe-ZVr" userLabel="Single Cover Image Container View">
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_default_profile_image_1" translatesAutoresizingMaskIntoConstraints="NO" id="rZf-g3-q9P" userLabel="Cover Image View 1">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="rZf-g3-q9P" secondAttribute="trailing" id="3pX-4z-vG7"/>
+                                        <constraint firstAttribute="bottom" secondItem="rZf-g3-q9P" secondAttribute="bottom" id="FaA-DU-iJ0"/>
+                                        <constraint firstItem="rZf-g3-q9P" firstAttribute="top" secondItem="AIj-fe-ZVr" secondAttribute="top" id="fRQ-aH-8LY"/>
+                                        <constraint firstItem="rZf-g3-q9P" firstAttribute="leading" secondItem="AIj-fe-ZVr" secondAttribute="leading" id="n9B-qk-fCE"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nXC-ur-iID" userLabel="Double Cover Image Container View">
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_default_profile_image_1" translatesAutoresizingMaskIntoConstraints="NO" id="t6e-Rs-jY0" userLabel="Cover Image View 1">
+                                            <rect key="frame" x="0.0" y="0.0" width="49" height="100"/>
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_default_profile_image_2" translatesAutoresizingMaskIntoConstraints="NO" id="cFb-eA-hmo" userLabel="Cover Image View 2">
+                                            <rect key="frame" x="51" y="0.0" width="49" height="100"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="centerX" secondItem="t6e-Rs-jY0" secondAttribute="trailing" constant="1" id="1VY-Jo-19R"/>
+                                        <constraint firstItem="cFb-eA-hmo" firstAttribute="leading" secondItem="nXC-ur-iID" secondAttribute="centerX" constant="1" id="B87-Yv-sEu"/>
+                                        <constraint firstItem="t6e-Rs-jY0" firstAttribute="top" secondItem="nXC-ur-iID" secondAttribute="top" id="Cpx-WH-aJw"/>
+                                        <constraint firstItem="cFb-eA-hmo" firstAttribute="top" secondItem="nXC-ur-iID" secondAttribute="top" id="GK9-Jt-jlz"/>
+                                        <constraint firstAttribute="trailing" secondItem="cFb-eA-hmo" secondAttribute="trailing" id="JwM-HE-cDx"/>
+                                        <constraint firstAttribute="bottom" secondItem="cFb-eA-hmo" secondAttribute="bottom" id="OcN-9I-I7r"/>
+                                        <constraint firstAttribute="bottom" secondItem="t6e-Rs-jY0" secondAttribute="bottom" id="UFY-pI-H2A"/>
+                                        <constraint firstItem="t6e-Rs-jY0" firstAttribute="leading" secondItem="nXC-ur-iID" secondAttribute="leading" id="gDx-mN-XDM"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z1Y-XL-8yL" userLabel="Triple Cover Image Container View">
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_default_profile_image_1" translatesAutoresizingMaskIntoConstraints="NO" id="QM7-Yl-bkb" userLabel="Cover Image View 1">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="49"/>
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_default_profile_image_2" translatesAutoresizingMaskIntoConstraints="NO" id="q6o-Ls-SjC" userLabel="Cover Image View 2">
+                                            <rect key="frame" x="0.0" y="51" width="49" height="49"/>
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_default_profile_image_3" translatesAutoresizingMaskIntoConstraints="NO" id="AYA-aS-Q3W" userLabel="Cover Image View 3">
+                                            <rect key="frame" x="51" y="51" width="49" height="49"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="QM7-Yl-bkb" firstAttribute="leading" secondItem="Z1Y-XL-8yL" secondAttribute="leading" id="55X-lK-ttT"/>
+                                        <constraint firstItem="QM7-Yl-bkb" firstAttribute="top" secondItem="Z1Y-XL-8yL" secondAttribute="top" id="6iF-SZ-BLO"/>
+                                        <constraint firstAttribute="centerY" secondItem="QM7-Yl-bkb" secondAttribute="bottom" constant="1" id="7FZ-cO-oQM"/>
+                                        <constraint firstAttribute="bottom" secondItem="q6o-Ls-SjC" secondAttribute="bottom" id="AYR-He-8tx"/>
+                                        <constraint firstAttribute="bottom" secondItem="AYA-aS-Q3W" secondAttribute="bottom" id="He7-FL-C51"/>
+                                        <constraint firstItem="q6o-Ls-SjC" firstAttribute="leading" secondItem="Z1Y-XL-8yL" secondAttribute="leading" id="f7Q-4p-bKm"/>
+                                        <constraint firstItem="AYA-aS-Q3W" firstAttribute="top" secondItem="Z1Y-XL-8yL" secondAttribute="centerY" constant="1" id="gI5-uo-bqk"/>
+                                        <constraint firstItem="AYA-aS-Q3W" firstAttribute="leading" secondItem="Z1Y-XL-8yL" secondAttribute="centerX" constant="1" id="gX8-wt-JjG"/>
+                                        <constraint firstAttribute="trailing" secondItem="AYA-aS-Q3W" secondAttribute="trailing" id="nhG-qh-Pf2"/>
+                                        <constraint firstAttribute="trailing" secondItem="QM7-Yl-bkb" secondAttribute="trailing" id="wbP-xg-q1c"/>
+                                        <constraint firstItem="q6o-Ls-SjC" firstAttribute="top" secondItem="Z1Y-XL-8yL" secondAttribute="centerY" constant="1" id="xsQ-kn-Rgw"/>
+                                        <constraint firstAttribute="centerX" secondItem="q6o-Ls-SjC" secondAttribute="trailing" constant="1" id="yje-Tg-Abr"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UUU-Cn-HdB" userLabel="Quadruple Cover Image Container View">
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_default_profile_image_1" translatesAutoresizingMaskIntoConstraints="NO" id="2ZG-7e-9XS" userLabel="Cover Image View 1">
+                                            <rect key="frame" x="0.0" y="0.0" width="49" height="49"/>
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_default_profile_image_2" translatesAutoresizingMaskIntoConstraints="NO" id="79k-Yg-NZE" userLabel="Cover Image View 2">
+                                            <rect key="frame" x="51" y="0.0" width="49" height="49"/>
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_default_profile_image_3" translatesAutoresizingMaskIntoConstraints="NO" id="YB8-6t-WwO" userLabel="Cover Image View 3">
+                                            <rect key="frame" x="0.0" y="51" width="49" height="49"/>
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_default_profile_image_4" translatesAutoresizingMaskIntoConstraints="NO" id="zkI-v3-omK" userLabel="Cover Image View 4">
+                                            <rect key="frame" x="51" y="51" width="49" height="49"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="YB8-6t-WwO" firstAttribute="top" secondItem="UUU-Cn-HdB" secondAttribute="centerY" constant="1" id="3Le-7h-plB"/>
+                                        <constraint firstItem="2ZG-7e-9XS" firstAttribute="top" secondItem="UUU-Cn-HdB" secondAttribute="top" id="5X1-ax-Ssb"/>
+                                        <constraint firstItem="79k-Yg-NZE" firstAttribute="leading" secondItem="UUU-Cn-HdB" secondAttribute="centerX" constant="1" id="6lm-bW-sKx"/>
+                                        <constraint firstItem="zkI-v3-omK" firstAttribute="top" secondItem="UUU-Cn-HdB" secondAttribute="centerY" constant="1" id="9QD-Ts-OH3"/>
+                                        <constraint firstAttribute="trailing" secondItem="zkI-v3-omK" secondAttribute="trailing" id="Ac7-PJ-US4"/>
+                                        <constraint firstItem="79k-Yg-NZE" firstAttribute="top" secondItem="UUU-Cn-HdB" secondAttribute="top" id="IO2-Rb-PFN"/>
+                                        <constraint firstAttribute="bottom" secondItem="YB8-6t-WwO" secondAttribute="bottom" id="JCm-70-WmK"/>
+                                        <constraint firstAttribute="centerX" secondItem="YB8-6t-WwO" secondAttribute="trailing" constant="1" id="LKm-pC-HHn"/>
+                                        <constraint firstAttribute="trailing" secondItem="79k-Yg-NZE" secondAttribute="trailing" id="LvT-dx-YwB"/>
+                                        <constraint firstAttribute="bottom" secondItem="zkI-v3-omK" secondAttribute="bottom" id="Rce-sG-QB6"/>
+                                        <constraint firstItem="YB8-6t-WwO" firstAttribute="leading" secondItem="UUU-Cn-HdB" secondAttribute="leading" id="g8k-iD-oMV"/>
+                                        <constraint firstAttribute="centerX" secondItem="2ZG-7e-9XS" secondAttribute="trailing" constant="1" id="k8U-2w-ibZ"/>
+                                        <constraint firstItem="zkI-v3-omK" firstAttribute="leading" secondItem="UUU-Cn-HdB" secondAttribute="centerX" constant="1" id="n2f-j8-R2m"/>
+                                        <constraint firstAttribute="centerY" secondItem="79k-Yg-NZE" secondAttribute="bottom" constant="1" id="qBr-8S-6mA"/>
+                                        <constraint firstItem="2ZG-7e-9XS" firstAttribute="leading" secondItem="UUU-Cn-HdB" secondAttribute="leading" id="wII-ja-mzC"/>
+                                        <constraint firstAttribute="centerY" secondItem="2ZG-7e-9XS" secondAttribute="bottom" constant="1" id="yyu-MY-Lb6"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="100" id="4JF-cr-jTp"/>
+                                <constraint firstItem="Z1Y-XL-8yL" firstAttribute="top" secondItem="aBs-S2-J5B" secondAttribute="top" id="7lR-0s-dgg"/>
+                                <constraint firstAttribute="bottom" secondItem="UUU-Cn-HdB" secondAttribute="bottom" id="Hay-Jx-NrI"/>
+                                <constraint firstAttribute="trailing" secondItem="UUU-Cn-HdB" secondAttribute="trailing" id="IPJ-tZ-fOX"/>
+                                <constraint firstAttribute="trailing" secondItem="Z1Y-XL-8yL" secondAttribute="trailing" id="ITI-s6-1YB"/>
+                                <constraint firstAttribute="bottom" secondItem="Z1Y-XL-8yL" secondAttribute="bottom" id="KUz-5v-CDr"/>
+                                <constraint firstItem="UUU-Cn-HdB" firstAttribute="leading" secondItem="aBs-S2-J5B" secondAttribute="leading" id="PSN-EV-Ow4"/>
+                                <constraint firstItem="AIj-fe-ZVr" firstAttribute="leading" secondItem="aBs-S2-J5B" secondAttribute="leading" id="VDA-lC-MHm"/>
+                                <constraint firstItem="UUU-Cn-HdB" firstAttribute="top" secondItem="aBs-S2-J5B" secondAttribute="top" id="XT4-3y-OO9"/>
+                                <constraint firstAttribute="width" constant="100" id="YdP-em-4Dr"/>
+                                <constraint firstItem="nXC-ur-iID" firstAttribute="top" secondItem="aBs-S2-J5B" secondAttribute="top" id="fEU-MP-9n9"/>
+                                <constraint firstItem="Z1Y-XL-8yL" firstAttribute="leading" secondItem="aBs-S2-J5B" secondAttribute="leading" id="gt9-zZ-c6s"/>
+                                <constraint firstAttribute="trailing" secondItem="AIj-fe-ZVr" secondAttribute="trailing" id="jwU-KV-jog"/>
+                                <constraint firstItem="AIj-fe-ZVr" firstAttribute="top" secondItem="aBs-S2-J5B" secondAttribute="top" id="nPT-A0-TXF"/>
+                                <constraint firstItem="nXC-ur-iID" firstAttribute="leading" secondItem="aBs-S2-J5B" secondAttribute="leading" id="rj6-5C-xEW"/>
+                                <constraint firstAttribute="bottom" secondItem="nXC-ur-iID" secondAttribute="bottom" id="vZS-8J-93e"/>
+                                <constraint firstAttribute="trailing" secondItem="nXC-ur-iID" secondAttribute="trailing" id="yeS-HD-zLv"/>
+                                <constraint firstAttribute="bottom" secondItem="AIj-fe-ZVr" secondAttribute="bottom" id="zR6-Cu-MMr"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="50"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_icon_edit_camera" translatesAutoresizingMaskIntoConstraints="NO" id="gPo-rz-B9u" userLabel="Camera Image View">
+                            <rect key="frame" x="88" y="82" width="28" height="28"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="28" id="8VI-ta-wlc"/>
+                                <constraint firstAttribute="width" constant="28" id="MA2-bJ-naQ"/>
+                            </constraints>
+                        </imageView>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Channel Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Lug-W9-PiX" userLabel="Channel Name Text Field">
+                            <rect key="frame" x="133" y="49.666666666666671" width="226" height="22"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="hvC-hW-5AE" secondAttribute="trailing" id="25c-he-shD"/>
+                        <constraint firstItem="Lug-W9-PiX" firstAttribute="leading" secondItem="aBs-S2-J5B" secondAttribute="trailing" constant="17" id="HOx-cU-gmw"/>
+                        <constraint firstItem="Lug-W9-PiX" firstAttribute="centerY" secondItem="S5y-pr-oBv" secondAttribute="centerY" id="JBL-I2-Xiu"/>
+                        <constraint firstItem="aBs-S2-J5B" firstAttribute="centerY" secondItem="S5y-pr-oBv" secondAttribute="centerY" id="KPv-Nr-l2i"/>
+                        <constraint firstItem="gPo-rz-B9u" firstAttribute="trailing" secondItem="aBs-S2-J5B" secondAttribute="trailing" id="RSr-he-MQI"/>
+                        <constraint firstAttribute="height" constant="120" id="iAL-WB-7bL"/>
+                        <constraint firstItem="hvC-hW-5AE" firstAttribute="leading" secondItem="S5y-pr-oBv" secondAttribute="leading" id="lFS-6i-mP3"/>
+                        <constraint firstAttribute="bottom" secondItem="hvC-hW-5AE" secondAttribute="bottom" id="mNl-nu-OwF"/>
+                        <constraint firstItem="gPo-rz-B9u" firstAttribute="bottom" secondItem="aBs-S2-J5B" secondAttribute="bottom" id="wEq-l6-ngR"/>
+                    </constraints>
+                </view>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="PoJ-HZ-rte" customClass="CustomActivityIndicatorView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                </activityIndicatorView>
+            </subviews>
+            <color key="backgroundColor" name="color_channel_settings_bg"/>
+            <constraints>
+                <constraint firstItem="S5y-pr-oBv" firstAttribute="leading" secondItem="UBB-lP-PuI" secondAttribute="leading" id="HPV-dg-a0y"/>
+                <constraint firstItem="PoJ-HZ-rte" firstAttribute="leading" secondItem="UBB-lP-PuI" secondAttribute="leading" id="Pjo-Bj-scn"/>
+                <constraint firstAttribute="trailing" secondItem="S5y-pr-oBv" secondAttribute="trailing" id="WZV-us-2mF"/>
+                <constraint firstItem="PoJ-HZ-rte" firstAttribute="top" secondItem="UBB-lP-PuI" secondAttribute="top" id="YGh-Ni-72B"/>
+                <constraint firstItem="S5y-pr-oBv" firstAttribute="top" secondItem="XjU-n9-gia" secondAttribute="top" id="Zpg-Za-qY7"/>
+                <constraint firstItem="XjU-n9-gia" firstAttribute="trailing" secondItem="Lug-W9-PiX" secondAttribute="trailing" constant="16" id="id9-Fu-K5d"/>
+                <constraint firstAttribute="trailing" secondItem="PoJ-HZ-rte" secondAttribute="trailing" id="oag-gy-Q7G"/>
+                <constraint firstAttribute="bottom" secondItem="PoJ-HZ-rte" secondAttribute="bottom" id="rFk-Jg-ObR"/>
+                <constraint firstItem="aBs-S2-J5B" firstAttribute="leading" secondItem="XjU-n9-gia" secondAttribute="leading" constant="16" id="u1c-KV-ATL"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="XjU-n9-gia"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="img_default_profile_image_1" width="100" height="100"/>
+        <image name="img_default_profile_image_2" width="100" height="100"/>
+        <image name="img_default_profile_image_3" width="100" height="100"/>
+        <image name="img_default_profile_image_4" width="100" height="100"/>
+        <image name="img_icon_edit_camera" width="30" height="30"/>
+        <namedColor name="color_channel_settings_bg">
+            <color red="0.93699997663497925" green="0.93699997663497925" blue="0.9570000171661377" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

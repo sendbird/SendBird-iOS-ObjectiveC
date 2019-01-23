@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="GroupChannelSettingsMemberTableViewCell" id="KGk-i7-Jjw" customClass="GroupChannelSettingsMemberTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6QA-Jq-1xu" userLabel="Background View">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W9g-kK-Skl" userLabel="Divider View">
+                        <rect key="frame" x="68" y="0.0" width="252" height="0.5"/>
+                        <color key="backgroundColor" name="color_user_list_divider"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="xfQ-60-Pn5"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yOi-54-vHg" userLabel="Top Border View">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="0.5"/>
+                        <color key="backgroundColor" name="color_user_list_divider"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="DRc-7D-wvc"/>
+                        </constraints>
+                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TCC-th-RjW" userLabel="Profile Image View">
+                        <rect key="frame" x="15" y="2" width="38" height="38"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="38" id="Qtf-uw-B2a"/>
+                            <constraint firstAttribute="height" constant="38" id="vfn-ms-v8R"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="19"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9py-Yw-Imk" userLabel="My Profile Image Cover View">
+                        <rect key="frame" x="15" y="2" width="38" height="38"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="me" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jqj-z5-WVl" userLabel="Me Label">
+                                <rect key="frame" x="9" y="10.5" width="21.5" height="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.40392156862745099" green="0.25490196078431371" blue="0.85098039215686272" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Jqj-z5-WVl" firstAttribute="centerX" secondItem="9py-Yw-Imk" secondAttribute="centerX" id="RZ0-b5-AOC"/>
+                            <constraint firstItem="Jqj-z5-WVl" firstAttribute="centerY" secondItem="9py-Yw-Imk" secondAttribute="centerY" id="o2T-Pb-Up8"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="19"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_blocked_user_cover" translatesAutoresizingMaskIntoConstraints="NO" id="MFZ-Bs-dVc" userLabel="Blocked User Cover Image View">
+                        <rect key="frame" x="15" y="2" width="38" height="38"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nickname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENm-6i-pDH" userLabel="Nickname Label">
+                        <rect key="frame" x="68" y="11" width="175" height="21"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                        <color key="textColor" red="0.21176470588235294" green="0.1764705882352941" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="Blocked" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GtU-Un-woz" userLabel="Status Label">
+                        <rect key="frame" x="249" y="13" width="55" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.65490196078431373" green="0.61176470588235299" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="W9g-kK-Skl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="2mY-oe-98d"/>
+                    <constraint firstItem="MFZ-Bs-dVc" firstAttribute="trailing" secondItem="TCC-th-RjW" secondAttribute="trailing" id="530-wo-N0W"/>
+                    <constraint firstItem="9py-Yw-Imk" firstAttribute="leading" secondItem="TCC-th-RjW" secondAttribute="leading" id="69u-rW-pg8"/>
+                    <constraint firstItem="TCC-th-RjW" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="CJf-Ey-jWe"/>
+                    <constraint firstAttribute="bottom" secondItem="6QA-Jq-1xu" secondAttribute="bottom" id="CcU-nz-dXR"/>
+                    <constraint firstAttribute="trailing" secondItem="GtU-Un-woz" secondAttribute="trailing" constant="16" id="F8V-Mb-JNz"/>
+                    <constraint firstItem="TCC-th-RjW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="HrW-co-YFA"/>
+                    <constraint firstItem="GtU-Un-woz" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="MEw-Bm-Gl7"/>
+                    <constraint firstItem="MFZ-Bs-dVc" firstAttribute="bottom" secondItem="TCC-th-RjW" secondAttribute="bottom" id="Pvk-Ui-xz9"/>
+                    <constraint firstItem="MFZ-Bs-dVc" firstAttribute="top" secondItem="TCC-th-RjW" secondAttribute="top" id="Rcr-GE-uah"/>
+                    <constraint firstItem="GtU-Un-woz" firstAttribute="leading" secondItem="ENm-6i-pDH" secondAttribute="trailing" constant="6" id="YZH-BH-FoL"/>
+                    <constraint firstItem="W9g-kK-Skl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="68" id="k70-uu-f9j"/>
+                    <constraint firstItem="ENm-6i-pDH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="loO-qn-I96"/>
+                    <constraint firstItem="yOi-54-vHg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="meL-3p-0fa"/>
+                    <constraint firstItem="9py-Yw-Imk" firstAttribute="trailing" secondItem="TCC-th-RjW" secondAttribute="trailing" id="n2Z-SX-efi"/>
+                    <constraint firstItem="ENm-6i-pDH" firstAttribute="leading" secondItem="TCC-th-RjW" secondAttribute="trailing" constant="15" id="nI7-db-AB4"/>
+                    <constraint firstItem="MFZ-Bs-dVc" firstAttribute="leading" secondItem="TCC-th-RjW" secondAttribute="leading" id="sZ8-nJ-1YM"/>
+                    <constraint firstItem="9py-Yw-Imk" firstAttribute="bottom" secondItem="TCC-th-RjW" secondAttribute="bottom" id="tEl-7C-mIr"/>
+                    <constraint firstItem="9py-Yw-Imk" firstAttribute="top" secondItem="TCC-th-RjW" secondAttribute="top" id="uLh-A5-RF0"/>
+                    <constraint firstItem="6QA-Jq-1xu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="wjT-oV-2id"/>
+                </constraints>
+            </tableViewCellContentView>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="6QA-Jq-1xu" secondAttribute="trailing" id="1cm-a7-r1w"/>
+                <constraint firstItem="6QA-Jq-1xu" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" id="Ann-MZ-4bk"/>
+                <constraint firstAttribute="trailing" secondItem="W9g-kK-Skl" secondAttribute="trailing" id="OXu-L9-aup"/>
+                <constraint firstAttribute="trailing" secondItem="yOi-54-vHg" secondAttribute="trailing" id="Ybd-ye-TKt"/>
+                <constraint firstItem="yOi-54-vHg" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" id="uA5-Zs-XXC"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="blockedUserCoverImageView" destination="MFZ-Bs-dVc" id="P58-cL-K08"/>
+                <outlet property="myProfileImageCoverView" destination="9py-Yw-Imk" id="dR5-pg-mNs"/>
+                <outlet property="nicknameLabel" destination="ENm-6i-pDH" id="Dhu-ja-AlR"/>
+                <outlet property="profileImageView" destination="TCC-th-RjW" id="cTi-Gr-QgE"/>
+                <outlet property="statusLabel" destination="GtU-Un-woz" id="qRR-F4-d64"/>
+                <outlet property="topBorderView" destination="yOi-54-vHg" id="N8D-wh-V9p"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="img_blocked_user_cover" width="38" height="38"/>
+        <namedColor name="color_user_list_divider">
+            <color red="0.79600000380000002" green="0.80800002810000005" blue="0.83099997039999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserProfileViewController">
+            <connections>
+                <outlet property="lastUpdatedLabel" destination="uvw-de-k4E" id="hMS-dl-I9A"/>
+                <outlet property="nicknameLabel" destination="zcf-hc-oR5" id="P3r-ex-hoS"/>
+                <outlet property="onlineStateImageView" destination="bF2-Mb-9la" id="JWj-tu-mhD"/>
+                <outlet property="onlineStateLabel" destination="WrE-XA-vuX" id="2vn-bp-NLE"/>
+                <outlet property="profileImageView" destination="3ge-S8-M3B" id="R7v-ub-LDn"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5bF-lz-FyF">
+                    <rect key="frame" x="0.0" y="88" width="375" height="121"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_default_profile_image_4" translatesAutoresizingMaskIntoConstraints="NO" id="3ge-S8-M3B" userLabel="Profile Image View">
+                            <rect key="frame" x="15" y="10" width="100" height="100"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="100" id="2vf-0h-8Zu"/>
+                                <constraint firstAttribute="width" constant="100" id="kCi-P2-2LM"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="50"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcf-hc-oR5" userLabel="Nickname Label">
+                            <rect key="frame" x="131" y="26" width="229" height="21"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                            <color key="textColor" name="color_profile_nickname"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_online" translatesAutoresizingMaskIntoConstraints="NO" id="bF2-Mb-9la" userLabel="Online State Image View">
+                            <rect key="frame" x="133" y="62" width="6" height="6"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="6" id="bf2-ki-Hn8"/>
+                                <constraint firstAttribute="height" constant="6" id="gYv-BG-8Ij"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Online" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WrE-XA-vuX" userLabel="Online State Label">
+                            <rect key="frame" x="144" y="56.999999999999993" width="38.666666666666657" height="15.666666666666664"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" name="color_online_state_label"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Updated" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvw-de-k4E" userLabel="Last Updated Label">
+                            <rect key="frame" x="131" y="81.666666666666657" width="65" height="12"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <color key="textColor" name="color_profile_last_updated_label"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="3ge-S8-M3B" firstAttribute="leading" secondItem="aFx-oj-9Ch" secondAttribute="leading" constant="15" id="34t-pu-Pdz"/>
+                        <constraint firstItem="bF2-Mb-9la" firstAttribute="top" secondItem="zcf-hc-oR5" secondAttribute="bottom" constant="15" id="7wU-lt-JFE"/>
+                        <constraint firstItem="WrE-XA-vuX" firstAttribute="leading" secondItem="bF2-Mb-9la" secondAttribute="trailing" constant="5" id="BAc-Wb-N1h"/>
+                        <constraint firstAttribute="height" constant="121" id="RXg-gK-pyV"/>
+                        <constraint firstItem="uvw-de-k4E" firstAttribute="top" secondItem="WrE-XA-vuX" secondAttribute="bottom" constant="9" id="T2i-eR-o1m"/>
+                        <constraint firstItem="3ge-S8-M3B" firstAttribute="centerY" secondItem="5bF-lz-FyF" secondAttribute="centerY" id="bgc-qZ-L1c"/>
+                        <constraint firstItem="uvw-de-k4E" firstAttribute="leading" secondItem="3ge-S8-M3B" secondAttribute="trailing" constant="16" id="k2U-F3-ywB"/>
+                        <constraint firstItem="bF2-Mb-9la" firstAttribute="leading" secondItem="3ge-S8-M3B" secondAttribute="trailing" constant="18" id="mE5-yc-KcN"/>
+                        <constraint firstItem="WrE-XA-vuX" firstAttribute="top" secondItem="zcf-hc-oR5" secondAttribute="bottom" constant="10" id="nGL-Nw-zeG"/>
+                        <constraint firstItem="zcf-hc-oR5" firstAttribute="top" secondItem="5bF-lz-FyF" secondAttribute="top" constant="26" id="pM9-ez-ugk"/>
+                        <constraint firstItem="aFx-oj-9Ch" firstAttribute="trailing" secondItem="zcf-hc-oR5" secondAttribute="trailing" constant="15" id="qnI-nX-yJa"/>
+                        <constraint firstItem="zcf-hc-oR5" firstAttribute="leading" secondItem="3ge-S8-M3B" secondAttribute="trailing" constant="16" id="wH8-eN-AaH"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="aFx-oj-9Ch"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" name="color_channel_settings_bg"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="5bF-lz-FyF" secondAttribute="trailing" id="EIj-3i-Ek1"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="top" secondItem="5bF-lz-FyF" secondAttribute="top" id="Imo-Bf-921"/>
+                <constraint firstItem="5bF-lz-FyF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="aGg-Fy-v3Q"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="img_default_profile_image_4" width="100" height="100"/>
+        <image name="img_online" width="6" height="6"/>
+        <namedColor name="color_channel_settings_bg">
+            <color red="0.93699997663497925" green="0.93699997663497925" blue="0.9570000171661377" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="color_online_state_label">
+            <color red="0.28999999165534973" green="0.31400001049041748" blue="0.3529999852180481" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="color_profile_last_updated_label">
+            <color red="0.51800000667572021" green="0.54900002479553223" blue="0.60399997234344482" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="color_profile_nickname">
+            <color red="0.21199999749660492" green="0.17599999904632568" blue="0.36500000953674316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

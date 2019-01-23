@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SettingsProfileTableViewCell" rowHeight="81" id="KGk-i7-Jjw" customClass="SettingsProfileTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="81"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="286" height="80.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="46i-ak-F8b" userLabel="Profile Image View">
+                        <rect key="frame" x="16" y="12.5" width="55" height="55"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="55" id="RC8-JK-hxD"/>
+                            <constraint firstAttribute="width" constant="55" id="ueE-f3-2Pe"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <real key="value" value="27.5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NIckname Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I4D-tb-a94" userLabel="Nickname Label">
+                        <rect key="frame" x="83" y="19" width="187" height="21"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                        <color key="textColor" name="color_settings_nickname_label"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y3s-2L-0DX" userLabel="User ID Label Container View">
+                        <rect key="frame" x="83" y="48" width="40" height="18"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VLs-DV-gLG" userLabel="User ID Title Label">
+                                <rect key="frame" x="2" y="3" width="36" height="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="0.5490196078431373" green="0.5490196078431373" blue="0.5490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="VLs-DV-gLG" firstAttribute="centerX" secondItem="y3s-2L-0DX" secondAttribute="centerX" id="4fv-5w-xU1"/>
+                            <constraint firstAttribute="height" constant="18" id="83d-Ef-bcd"/>
+                            <constraint firstAttribute="width" constant="40" id="klo-pf-Kuf"/>
+                            <constraint firstItem="VLs-DV-gLG" firstAttribute="centerY" secondItem="y3s-2L-0DX" secondAttribute="centerY" id="wli-NF-Qfs"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gn2-IK-Raf" userLabel="User ID Label">
+                        <rect key="frame" x="131" y="49" width="139" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.28627450980392155" green="0.30588235294117649" blue="0.3411764705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Gn2-IK-Raf" firstAttribute="centerY" secondItem="y3s-2L-0DX" secondAttribute="centerY" id="87M-le-hIr"/>
+                    <constraint firstAttribute="trailing" secondItem="I4D-tb-a94" secondAttribute="trailing" constant="16" id="8Yq-Zv-beY"/>
+                    <constraint firstItem="y3s-2L-0DX" firstAttribute="leading" secondItem="46i-ak-F8b" secondAttribute="trailing" constant="12" id="NmL-gB-aUg"/>
+                    <constraint firstItem="46i-ak-F8b" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="P7s-fR-U6k"/>
+                    <constraint firstItem="y3s-2L-0DX" firstAttribute="top" secondItem="I4D-tb-a94" secondAttribute="bottom" constant="8" id="U78-hs-AbJ"/>
+                    <constraint firstItem="I4D-tb-a94" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="19" id="aP3-5g-sTp"/>
+                    <constraint firstItem="I4D-tb-a94" firstAttribute="leading" secondItem="46i-ak-F8b" secondAttribute="trailing" constant="12" id="eHP-ak-YHm"/>
+                    <constraint firstAttribute="trailing" secondItem="Gn2-IK-Raf" secondAttribute="trailing" constant="16" id="s3r-st-A8n"/>
+                    <constraint firstItem="Gn2-IK-Raf" firstAttribute="leading" secondItem="y3s-2L-0DX" secondAttribute="trailing" constant="8" id="txB-h1-Dc0"/>
+                    <constraint firstItem="46i-ak-F8b" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ywR-CF-XdR"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="nicknameLabel" destination="I4D-tb-a94" id="XTQ-dc-mY7"/>
+                <outlet property="profileImageView" destination="46i-ak-F8b" id="CBY-wP-Py8"/>
+                <outlet property="userIdLabel" destination="Gn2-IK-Raf" id="3rq-aD-3w5"/>
+            </connections>
+            <point key="canvasLocation" x="25" y="70.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="color_settings_nickname_label">
+            <color red="0.28600001335144043" green="0.3059999942779541" blue="0.34099999070167542" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>

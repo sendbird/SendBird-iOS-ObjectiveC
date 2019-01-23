@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OpenChannelSettingsChannelNameTableViewCell"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="OpenChannelSettingsChannelNameTableViewCell" rowHeight="121" id="kTf-VF-AJe" customClass="OpenChannelSettingsChannelNameTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="121"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kTf-VF-AJe" id="ula-LN-wOo">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="120.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_cover_image_placeholder_1" translatesAutoresizingMaskIntoConstraints="NO" id="1xi-m3-nKn" userLabel="Channel Cover Image View">
+                        <rect key="frame" x="15" y="10" width="100" height="100.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="100" id="QXs-6R-daf"/>
+                            <constraint firstAttribute="width" constant="100" id="kz0-gd-a8v"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="50"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Channel Name" placeholder="Channel Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yqg-b3-oCg">
+                        <rect key="frame" x="131" y="49.5" width="172" height="22"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                    </textField>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ae7-g7-qsu" userLabel="Enable Edit Button">
+                        <rect key="frame" x="319" y="42" width="36" height="36"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="36" id="DH1-3x-Jj3"/>
+                            <constraint firstAttribute="height" constant="36" id="PUH-aO-oU8"/>
+                        </constraints>
+                        <state key="normal" image="img_btn_edit_channel_name"/>
+                        <state key="disabled" image="img_btn_edit_channel_name"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Yqg-b3-oCg" firstAttribute="leading" secondItem="1xi-m3-nKn" secondAttribute="trailing" constant="16" id="3CQ-nt-lgr"/>
+                    <constraint firstItem="1xi-m3-nKn" firstAttribute="centerY" secondItem="ula-LN-wOo" secondAttribute="centerY" id="JMm-lK-ZqE"/>
+                    <constraint firstItem="Yqg-b3-oCg" firstAttribute="centerY" secondItem="1xi-m3-nKn" secondAttribute="centerY" id="bhW-l2-3CL"/>
+                    <constraint firstItem="1xi-m3-nKn" firstAttribute="leading" secondItem="ula-LN-wOo" secondAttribute="leading" constant="15" id="bqw-Po-fcl"/>
+                    <constraint firstAttribute="trailing" secondItem="Ae7-g7-qsu" secondAttribute="trailing" constant="20" id="nig-AI-SOh"/>
+                    <constraint firstItem="Ae7-g7-qsu" firstAttribute="leading" secondItem="Yqg-b3-oCg" secondAttribute="trailing" constant="16" id="oKe-Ib-7bj"/>
+                    <constraint firstItem="Ae7-g7-qsu" firstAttribute="centerY" secondItem="1xi-m3-nKn" secondAttribute="centerY" id="zH9-7K-mRk"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="channelCoverImageView" destination="1xi-m3-nKn" id="uUa-yn-ryQ"/>
+                <outlet property="channelNameTextField" destination="Yqg-b3-oCg" id="sch-Lu-tym"/>
+                <outlet property="enableEditButton" destination="Ae7-g7-qsu" id="8tF-hw-XXc"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="img_btn_edit_channel_name" width="36" height="36"/>
+        <image name="img_cover_image_placeholder_1" width="100" height="100"/>
+    </resources>
+</document>

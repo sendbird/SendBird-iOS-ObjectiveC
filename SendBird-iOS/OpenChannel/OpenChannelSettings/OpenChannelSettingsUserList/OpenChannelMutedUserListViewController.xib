@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OpenChannelMutedUserListViewController">
+            <connections>
+                <outlet property="emptyLabel" destination="k53-x0-u4F" id="wp4-de-4KL"/>
+                <outlet property="mutedUsersTableView" destination="Uq8-2g-cp3" id="nQJ-MX-PBP"/>
+                <outlet property="view" destination="CeM-00-w3d" id="saq-dc-rMz"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="CeM-00-w3d">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Uq8-2g-cp3">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There are no muted users" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k53-x0-u4F" userLabel="Empty Label">
+                    <rect key="frame" x="97" y="402" width="180" height="18"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                    <color key="textColor" name="color_empty_list_label"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Uq8-2g-cp3" secondAttribute="trailing" id="9cp-7K-ZDM"/>
+                <constraint firstItem="k53-x0-u4F" firstAttribute="centerX" secondItem="Yhc-4t-j61" secondAttribute="centerX" id="K5i-QZ-cgP"/>
+                <constraint firstItem="k53-x0-u4F" firstAttribute="centerY" secondItem="Yhc-4t-j61" secondAttribute="centerY" id="adH-en-Gji"/>
+                <constraint firstItem="Uq8-2g-cp3" firstAttribute="leading" secondItem="CeM-00-w3d" secondAttribute="leading" id="bJk-YV-pz3"/>
+                <constraint firstAttribute="bottom" secondItem="Uq8-2g-cp3" secondAttribute="bottom" id="lDh-xX-5yo"/>
+                <constraint firstItem="Uq8-2g-cp3" firstAttribute="top" secondItem="CeM-00-w3d" secondAttribute="top" id="zLJ-KF-Haz"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Yhc-4t-j61"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="color_empty_list_label">
+            <color red="0.61599999670000005" green="0.63899999860000001" blue="0.68199998139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

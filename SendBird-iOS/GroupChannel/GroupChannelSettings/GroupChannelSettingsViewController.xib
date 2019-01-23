@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GroupChannelSettingsViewController">
+            <connections>
+                <outlet property="loadingIndicatorView" destination="QUa-46-N3s" id="Id6-2F-MrB"/>
+                <outlet property="settingsTableView" destination="urK-hC-hAr" id="Kl9-qF-TYr"/>
+                <outlet property="view" destination="Cxa-ni-llD" id="qYl-bh-w08"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Cxa-ni-llD">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="urK-hC-hAr">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="QUa-46-N3s" customClass="CustomActivityIndicatorView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                </activityIndicatorView>
+            </subviews>
+            <color key="backgroundColor" name="color_channel_settings_bg"/>
+            <constraints>
+                <constraint firstItem="QUa-46-N3s" firstAttribute="top" secondItem="Cxa-ni-llD" secondAttribute="top" id="13R-5i-LeX"/>
+                <constraint firstItem="urK-hC-hAr" firstAttribute="leading" secondItem="Cxa-ni-llD" secondAttribute="leading" id="KL7-Ar-JRN"/>
+                <constraint firstAttribute="trailing" secondItem="urK-hC-hAr" secondAttribute="trailing" id="S4d-Ts-5iF"/>
+                <constraint firstAttribute="trailing" secondItem="QUa-46-N3s" secondAttribute="trailing" id="iae-jw-xeu"/>
+                <constraint firstAttribute="bottom" secondItem="QUa-46-N3s" secondAttribute="bottom" id="l2N-AW-3au"/>
+                <constraint firstAttribute="bottom" secondItem="urK-hC-hAr" secondAttribute="bottom" id="l71-bX-04v"/>
+                <constraint firstItem="QUa-46-N3s" firstAttribute="leading" secondItem="Cxa-ni-llD" secondAttribute="leading" id="swG-Wk-T82"/>
+                <constraint firstItem="urK-hC-hAr" firstAttribute="top" secondItem="Cxa-ni-llD" secondAttribute="top" id="zJL-rU-qXw"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="zuP-FE-Fz0"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="color_channel_settings_bg">
+            <color red="0.93699997663497925" green="0.93699997663497925" blue="0.9570000171661377" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

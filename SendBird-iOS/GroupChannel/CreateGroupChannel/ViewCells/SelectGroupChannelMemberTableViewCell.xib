@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelectGroupChannelMemberTableViewCell"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SelectGroupChannelMemberTableViewCell" rowHeight="64" id="ujf-yM-hzK" customClass="SelectGroupChannelMemberTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ujf-yM-hzK" id="VIx-yN-VyW">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="63.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_list_unchecked" translatesAutoresizingMaskIntoConstraints="NO" id="ucK-6l-sAt" userLabel="Check Image View">
+                        <rect key="frame" x="16" y="20" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="4TF-y5-Row"/>
+                            <constraint firstAttribute="width" constant="24" id="U7I-ar-Pqt"/>
+                        </constraints>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0yc-1w-uOR" userLabel="Profile Image View">
+                        <rect key="frame" x="58" y="9" width="45" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="45" id="aJk-US-Kvn"/>
+                            <constraint firstAttribute="height" constant="45" id="kK3-tk-bye"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <real key="value" value="22.5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7bB-oS-H4s" userLabel="Divider View">
+                        <rect key="frame" x="111" y="62.5" width="264" height="1"/>
+                        <color key="backgroundColor" name="color_user_list_divider"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="Wkg-hj-zo6"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KzX-1O-q4f" userLabel="Nickname Label">
+                        <rect key="frame" x="111" y="21" width="248" height="21"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                        <color key="textColor" red="0.21176470589999999" green="0.1764705882" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="0yc-1w-uOR" firstAttribute="leading" secondItem="ucK-6l-sAt" secondAttribute="trailing" constant="18" id="4eQ-S9-z71"/>
+                    <constraint firstAttribute="trailing" secondItem="KzX-1O-q4f" secondAttribute="trailing" constant="16" id="4ew-ED-5HX"/>
+                    <constraint firstItem="KzX-1O-q4f" firstAttribute="centerY" secondItem="VIx-yN-VyW" secondAttribute="centerY" id="Fss-Zx-396"/>
+                    <constraint firstItem="ucK-6l-sAt" firstAttribute="leading" secondItem="VIx-yN-VyW" secondAttribute="leading" constant="16" id="GKM-Rk-jdY"/>
+                    <constraint firstItem="ucK-6l-sAt" firstAttribute="centerY" secondItem="VIx-yN-VyW" secondAttribute="centerY" id="MTU-ts-KpG"/>
+                    <constraint firstItem="7bB-oS-H4s" firstAttribute="leading" secondItem="KzX-1O-q4f" secondAttribute="leading" id="V0E-wg-pI4"/>
+                    <constraint firstItem="0yc-1w-uOR" firstAttribute="centerY" secondItem="VIx-yN-VyW" secondAttribute="centerY" id="auM-Gq-nep"/>
+                    <constraint firstAttribute="bottom" secondItem="7bB-oS-H4s" secondAttribute="bottom" id="eXR-aM-S3N"/>
+                    <constraint firstItem="KzX-1O-q4f" firstAttribute="leading" secondItem="0yc-1w-uOR" secondAttribute="trailing" constant="8" id="mOd-Lg-271"/>
+                </constraints>
+            </tableViewCellContentView>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="7bB-oS-H4s" secondAttribute="trailing" id="gde-pt-ES9"/>
+            </constraints>
+            <connections>
+                <outlet property="checkImageView" destination="ucK-6l-sAt" id="jP8-h4-pNn"/>
+                <outlet property="nicknameLabel" destination="KzX-1O-q4f" id="Wfa-u1-kBJ"/>
+                <outlet property="profileImageView" destination="0yc-1w-uOR" id="aeL-Nn-5gq"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="img_list_unchecked" width="24" height="24"/>
+        <namedColor name="color_user_list_divider">
+            <color red="0.79600000381469727" green="0.80800002813339233" blue="0.83099997043609619" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

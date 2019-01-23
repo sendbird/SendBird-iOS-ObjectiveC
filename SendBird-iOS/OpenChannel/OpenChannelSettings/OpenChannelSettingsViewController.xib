@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OpenChannelSettingsViewController">
+            <connections>
+                <outlet property="loadingIndicatorView" destination="0tg-54-Hza" id="UaR-9i-fk3"/>
+                <outlet property="settingsTableView" destination="vxi-qh-sHx" id="W5A-IY-YfD"/>
+                <outlet property="view" destination="V1k-C4-V0V" id="tzt-kK-58n"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="V1k-C4-V0V">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="0tg-54-Hza" userLabel="Loading Indicator View" customClass="CustomActivityIndicatorView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                </activityIndicatorView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vxi-qh-sHx">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                    <color key="backgroundColor" name="color_channel_settings_bg"/>
+                    <color key="sectionIndexBackgroundColor" name="color_channel_settings_bg"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" name="color_channel_settings_bg"/>
+            <constraints>
+                <constraint firstItem="vxi-qh-sHx" firstAttribute="top" secondItem="V1k-C4-V0V" secondAttribute="top" id="3yd-tI-1ma"/>
+                <constraint firstItem="vxi-qh-sHx" firstAttribute="leading" secondItem="V1k-C4-V0V" secondAttribute="leading" id="4gu-fU-Kab"/>
+                <constraint firstAttribute="trailing" secondItem="0tg-54-Hza" secondAttribute="trailing" id="8IO-0a-IqJ"/>
+                <constraint firstAttribute="trailing" secondItem="vxi-qh-sHx" secondAttribute="trailing" id="ANE-bD-nca"/>
+                <constraint firstAttribute="bottom" secondItem="vxi-qh-sHx" secondAttribute="bottom" id="Fq3-mL-xBy"/>
+                <constraint firstAttribute="bottom" secondItem="0tg-54-Hza" secondAttribute="bottom" id="NuS-hw-UGx"/>
+                <constraint firstItem="0tg-54-Hza" firstAttribute="leading" secondItem="V1k-C4-V0V" secondAttribute="leading" id="jYI-4L-hg3"/>
+                <constraint firstItem="0tg-54-Hza" firstAttribute="top" secondItem="V1k-C4-V0V" secondAttribute="top" id="k05-Gb-aOJ"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <viewLayoutGuide key="safeArea" id="Zoy-O4-rt9"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="color_channel_settings_bg">
+            <color red="0.93699997663497925" green="0.93699997663497925" blue="0.9570000171661377" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

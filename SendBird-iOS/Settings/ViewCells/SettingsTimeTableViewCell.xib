@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettingsTimeTableViewCell" id="KGk-i7-Jjw" customClass="SettingsTimeTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uOK-qi-3Ji" userLabel="Bottom Border View">
+                        <rect key="frame" x="16" y="43" width="304" height="0.5"/>
+                        <color key="backgroundColor" name="color_user_list_divider"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="XYT-da-0qB"/>
+                        </constraints>
+                    </view>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xRP-yb-8dQ" userLabel="Expanded Bottom Border View">
+                        <rect key="frame" x="0.0" y="43" width="320" height="0.5"/>
+                        <color key="backgroundColor" name="color_user_list_divider"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="2jY-9R-tgq"/>
+                        </constraints>
+                    </view>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yOc-eL-txV" userLabel="Expanded Top Border View">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="0.5"/>
+                        <color key="backgroundColor" name="color_user_list_divider"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="x6j-dd-QLE"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dc5-df-bv4" userLabel="Setting Label">
+                        <rect key="frame" x="16" y="11.5" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.21176470589999999" green="0.1764705882" blue="0.36470588240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23:59" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iDU-sp-0t9" userLabel="Time Label">
+                        <rect key="frame" x="260.5" y="12" width="43.5" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" name="color_settings_time_label_normal"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="uOK-qi-3Ji" secondAttribute="bottom" id="GZ1-ab-Bot"/>
+                    <constraint firstItem="yOc-eL-txV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Mm8-g1-g7b"/>
+                    <constraint firstItem="iDU-sp-0t9" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="NY0-Ju-gCz"/>
+                    <constraint firstItem="dc5-df-bv4" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="NsA-Mh-Qyy"/>
+                    <constraint firstItem="uOK-qi-3Ji" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Ui8-KZ-Tqp"/>
+                    <constraint firstAttribute="trailing" secondItem="iDU-sp-0t9" secondAttribute="trailing" constant="16" id="d6d-iM-Dzz"/>
+                    <constraint firstItem="dc5-df-bv4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="gXB-Bc-rUe"/>
+                    <constraint firstAttribute="bottom" secondItem="xRP-yb-8dQ" secondAttribute="bottom" id="su9-uS-gUd"/>
+                </constraints>
+            </tableViewCellContentView>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="yOc-eL-txV" secondAttribute="trailing" id="2Bq-9l-PT9"/>
+                <constraint firstItem="yOc-eL-txV" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" id="Eon-c9-fJ2"/>
+                <constraint firstAttribute="trailing" secondItem="xRP-yb-8dQ" secondAttribute="trailing" id="Otr-91-Jf2"/>
+                <constraint firstItem="xRP-yb-8dQ" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" id="Qiq-on-y7F"/>
+                <constraint firstAttribute="trailing" secondItem="uOK-qi-3Ji" secondAttribute="trailing" id="m9x-aO-iUF"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="bottomBorderView" destination="uOK-qi-3Ji" id="S3K-sj-Y21"/>
+                <outlet property="expandedBottomBorderView" destination="xRP-yb-8dQ" id="6IC-P3-8vf"/>
+                <outlet property="expandedTopBorderView" destination="yOc-eL-txV" id="TH6-wl-EmK"/>
+                <outlet property="settingLabel" destination="dc5-df-bv4" id="Ivj-He-Cbm"/>
+                <outlet property="timeLabel" destination="iDU-sp-0t9" id="nrW-jq-KLp"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="color_settings_time_label_normal">
+            <color red="0.65499997138977051" green="0.6119999885559082" blue="0.7839999794960022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="color_user_list_divider">
+            <color red="0.79600000381469727" green="0.80800002813339233" blue="0.83099997043609619" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

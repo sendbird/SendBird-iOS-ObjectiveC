@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsViewController">
+            <connections>
+                <outlet property="loadingIndicatorView" destination="YL7-fG-2yy" id="pAD-iC-7p2"/>
+                <outlet property="tableView" destination="0LL-gB-Z4w" id="IeU-PH-UJG"/>
+                <outlet property="tableViewBottmMargin" destination="PsM-q8-HqA" id="otd-Cb-UCw"/>
+                <outlet property="view" destination="4oa-e5-mM6" id="Di7-MG-Azb"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="4oa-e5-mM6">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0LL-gB-Z4w">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="sectionIndexBackgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                </tableView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="YL7-fG-2yy" customClass="CustomActivityIndicatorView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                </activityIndicatorView>
+            </subviews>
+            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="tintColor" name="color_bar_item"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="YL7-fG-2yy" secondAttribute="bottom" id="CEd-wc-NuG"/>
+                <constraint firstAttribute="trailing" secondItem="YL7-fG-2yy" secondAttribute="trailing" id="EZR-73-zC4"/>
+                <constraint firstItem="YL7-fG-2yy" firstAttribute="top" secondItem="4oa-e5-mM6" secondAttribute="top" id="Kmg-JL-zz7"/>
+                <constraint firstAttribute="bottom" secondItem="0LL-gB-Z4w" secondAttribute="bottom" id="PsM-q8-HqA"/>
+                <constraint firstAttribute="trailing" secondItem="0LL-gB-Z4w" secondAttribute="trailing" id="Tde-hD-hg5"/>
+                <constraint firstItem="0LL-gB-Z4w" firstAttribute="top" secondItem="4oa-e5-mM6" secondAttribute="top" id="YZA-OD-vxX"/>
+                <constraint firstItem="0LL-gB-Z4w" firstAttribute="leading" secondItem="4oa-e5-mM6" secondAttribute="leading" id="biD-ai-eUc"/>
+                <constraint firstItem="YL7-fG-2yy" firstAttribute="leading" secondItem="4oa-e5-mM6" secondAttribute="leading" id="f2x-Uw-VEb"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <viewLayoutGuide key="safeArea" id="4yT-DK-CF3"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="color_bar_item">
+            <color red="0.47499999403953552" green="0.31400001049041748" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
