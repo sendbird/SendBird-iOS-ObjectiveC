@@ -1159,7 +1159,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SendBird-iOS/Pods-SendBird-iOS-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SendBird-iOS/Pods-SendBird-iOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
 				"${BUILT_PRODUCTS_DIR}/NYTPhotoViewer/NYTPhotoViewer.framework",
@@ -1178,7 +1178,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SendBird-iOS/Pods-SendBird-iOS-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SendBird-iOS/Pods-SendBird-iOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		1D3AF321BB600080D2942829 /* [CP] Check Pods Manifest.lock */ = {
