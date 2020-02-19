@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <SendBirdSDK/SendBirdSDK.h>
+#import <UIKit/UIKit.h>
 #import "NotificationDelegate.h"
 
 @interface SettingsBlockedUserListViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, NotificationDelegate>
