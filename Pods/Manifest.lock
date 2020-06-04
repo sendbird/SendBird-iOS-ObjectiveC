@@ -22,8 +22,8 @@ PODS:
     - FLAnimatedImage (~> 1.0.8)
     - NYTPhotoViewer/Core
   - NYTPhotoViewer/Core (1.1.0)
-  - RSKImageCropper (2.2.1)
-  - SendBirdSDK (3.0.129)
+  - RSKImageCropper (2.2.3)
+  - SendBirdSDK (3.0.183)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
@@ -33,7 +33,7 @@ DEPENDENCIES:
   - SendBirdSDK
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - AFNetworking
     - FLAnimatedImage
     - NYTPhotoViewer
@@ -44,9 +44,9 @@ SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   NYTPhotoViewer: e80e8767f3780d2df37c6f72cbab15d6c7232911
-  RSKImageCropper: 98296ad26b41753f796b6898d015509598f13d97
-  SendBirdSDK: d3b713679ded667524b5bac3620dd8d7745e9e17
+  RSKImageCropper: a446db0e8444a036b34f3c43db01b2373baa4b2a
+  SendBirdSDK: 7a32ec6babe957e03264349f37cc389d946317c8
 
-PODFILE CHECKSUM: 983c57be5984855bd90111c7ab59565f44996b1d
+PODFILE CHECKSUM: f18a254c94581b82a33a539b0247e04a96fa99e4
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.9.1

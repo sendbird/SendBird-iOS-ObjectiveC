@@ -41,56 +41,19 @@
 #import "SettingsBlockedUserListViewController.h"
 #import "Utils.h"
 
-//#import <KSCrash/KSCrash.h> // TODO: Remove this
-//#import <KSCrash/KSCrashInstallation+Alert.h>
-//#import <KSCrash/KSCrashInstallationStandard.h>
-//#import <KSCrash/KSCrashInstallationQuincyHockey.h>
-//#import <KSCrash/KSCrashInstallationEmail.h>
-//#import <KSCrash/KSCrashInstallationVictory.h>
-
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
 
-//- (void) installCrashHandler
-//{
-//    KSCrashInstallation* installation = [self makeEmailInstallation];
-//    [installation install];
-//    [KSCrash sharedInstance].deleteBehaviorAfterSendAll = KSCDeleteAlways; // TODO: Remove this
-//}
-//
-//- (KSCrashInstallation*) makeEmailInstallation
-//{
-//    NSString* emailAddress = @"jed@sendbird.com";
-//
-//    KSCrashInstallationEmail* email = [KSCrashInstallationEmail sharedInstance];
-//    email.recipients = @[emailAddress];
-//    email.subject = @"Crash Report";
-//    email.message = @"This is a crash report";
-//    email.filenameFmt = @"crash-report-%d.txt.gz";
-//
-//    [email addConditionalAlertWithTitle:@"Crash Detected"
-//                                message:@"The app crashed last time it was launched. Send a crash report?"
-//                              yesAnswer:@"Sure!"
-//                               noAnswer:@"No thanks"];
-//
-//    // Uncomment to send Apple style reports instead of JSON.
-//    [email setReportStyle:KSCrashEmailReportStyleApple useDefaultFilenameFormat:YES];
-//
-//    return email;
-//}
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-//    [self installCrashHandler];
-//    [SBDMain setLogLevel:999999999];
     [SBDOptions setConnectionTimeout:5];
     [SBDOptions setAuthenticationTimeout:10];
-//    [SBDMain initWithApplicationId:@"E9AFEC82-52BB-4423-861B-1C8E287AAC54"]; // New Sample
-    [SBDMain initWithApplicationId:@"9DA1B1F4-0BE6-4DA8-82C5-2E81DAB56F23"]; // Old Sample
-//    [SBDMain initWithApplicationId:@"4024FA9A-CD7B-4B1E-99AC-072086688AC9"]; // Intoz
+    [SBDMain initWithApplicationId:@"9880C4C1-E6C8-46E8-A8F1-D5890D598C08"];
+    
+    [SBDMain setAppGroup:@"group.com.sendbird.sample4"];
 
     [self registerForRemoteNotification];
     
