@@ -74,12 +74,12 @@
         self.versionInfoLabel.text = version;
     }
     
-    PHAuthorizationStatus authStatus = [PHPhotoLibrary authorizationStatus];
-    if (authStatus != PHAuthorizationStatusAuthorized) {
-        [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
-            
-        }];
-    }
+//    PHAuthorizationStatus authStatus = [PHPhotoLibrary authorizationStatus];
+//    if (authStatus != PHAuthorizationStatusAuthorized) {
+//        [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+//            
+//        }];
+//    }
     
     BOOL autoLogin = [[[NSUserDefaults standardUserDefaults] objectForKey:@"sendbird_auto_login"] boolValue];
     if (autoLogin) {
@@ -199,6 +199,7 @@
         [self setUIsForDefault];
         
         MainTabBarController *tabBarVC = [[MainTabBarController alloc] initWithNibName:@"MainTabBarController" bundle:nil];
+        tabBarVC.modalPresentationStyle = UIModalPresentationFullScreen;
         [self presentViewController:tabBarVC animated:YES completion:nil];
     });
 
@@ -240,6 +241,7 @@
 - (void)openChatWithChannelUrl:(NSString *)channelUrl {
     [self.navigationController popViewControllerAnimated:NO];
     MainTabBarController *tabBarVC = [[MainTabBarController alloc] initWithNibName:@"MainTabBarController" bundle:nil];
+    tabBarVC.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:tabBarVC animated:NO completion:^{
         UIViewController *vc = [UIViewController currentViewController];
         if ([vc isKindOfClass:[GroupChannelsViewController class]]) {

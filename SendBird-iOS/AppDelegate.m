@@ -344,6 +344,7 @@
         }
         else {
             MainTabBarController *mainTabBarController = [[MainTabBarController alloc] initWithNibName:@"MainTabBarController" bundle:nil];
+            mainTabBarController.modalPresentationStyle = UIModalPresentationFullScreen;
             [[UIViewController currentViewController] presentViewController:mainTabBarController animated:NO completion:nil];
         }
     }

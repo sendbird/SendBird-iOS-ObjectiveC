@@ -2,7 +2,7 @@
 //  SendBirdSDK.h
 //  SendBirdSDK
 //
-//  Created by Sendbird Developers on 2015. 3. 1. in San Francisco, CA.
+//  Created by SendBird Developers on 2015. 3. 1. in San Francisco, CA.
 //  Copyright (c) 2015 SENDBIRD.COM. All rights reserved.
 //
 
@@ -17,7 +17,7 @@
 #import "SBDBaseMessage.h"
 #import "SBDBaseMessageParams.h"
 #import "SBDBlockedUserListQuery.h"
-#import "SBDGroupChannelChangeLogsParams.h"
+#import "SBDComparator.h"
 #import "SBDConnectionManager.h"
 #import "SBDConstants.h"
 #import "SBDEmoji.h"
@@ -26,6 +26,7 @@
 #import "SBDFileMessageParams.h"
 #import "SBDFriendListQuery.h"
 #import "SBDGroupChannel.h"
+#import "SBDGroupChannelChangeLogsParams.h"
 #import "SBDGroupChannelListQuery.h"
 #import "SBDGroupChannelMemberListQuery.h"
 #import "SBDGroupChannelParams.h"
@@ -40,11 +41,16 @@
 #import "SBDMessageRetrievalParams.h"
 #import "SBDMessageSearchQuery.h"
 #import "SBDMutedUserListQuery.h"
+#import "SBDOGImage.h"
+#import "SBDOGMetaData.h"
+#import "SBDOGProtocol.h"
 #import "SBDOpenChannel.h"
 #import "SBDOpenChannelListQuery.h"
+#import "SBDOpenChannelParams.h"
 #import "SBDOperatorListQuery.h"
 #import "SBDOptions.h"
 #import "SBDParticipantListQuery.h"
+#import "SBDPlugin.h"
 #import "SBDPreviousMessageListQuery.h"
 #import "SBDPublicGroupChannelListQuery.h"
 #import "SBDReaction.h"
@@ -52,6 +58,7 @@
 #import "SBDScheduledUserMessage.h"
 #import "SBDScheduledUserMessageParams.h"
 #import "SBDSender.h"
+#import "SBDSessionDelegate.h"
 #import "SBDThreadInfo.h"
 #import "SBDThreadInfoUpdateEvent.h"
 #import "SBDThreadedMessageListParams.h"

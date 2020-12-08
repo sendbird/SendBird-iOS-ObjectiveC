@@ -88,6 +88,7 @@
 - (void)clickCreateOpenChannel:(id)sender {
     CreateOpenChannelNavigationController *vc  = [[CreateOpenChannelNavigationController alloc] initWithNibName:@"CreateOpenChannelNavigationController" bundle:nil];
     vc.createChannelDelegate = self;
+    vc.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:vc animated:YES completion:nil];
 }
 

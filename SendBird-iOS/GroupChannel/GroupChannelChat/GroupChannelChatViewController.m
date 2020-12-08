@@ -1293,128 +1293,128 @@
     NSDictionary *pickerInfo = info;
     [picker dismissViewControllerAnimated:YES completion:^{
         self.pickerControllerOpened = NO;
-        GroupChannelChatViewController *strongSelf = weakSelf;
+//        GroupChannelChatViewController *strongSelf = weakSelf;
+        NSData *imageData;
         if (CFStringCompare ((CFStringRef) mediaType, kUTTypeImage, 0) == kCFCompareEqualTo) {
-            PHAsset *imageAsset = [info objectForKey:UIImagePickerControllerPHAsset];
-            PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
-            options.synchronous = YES;
-            options.networkAccessAllowed = YES;
-            options.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
-            [[PHImageManager defaultManager] requestImageDataForAsset:imageAsset options:options resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
-                NSString *mimeType = (__bridge_transfer NSString *)UTTypeCopyPreferredTagWithClass((__bridge CFStringRef)dataUTI, kUTTagClassMIMEType);
+            NSURL *imagePath = (NSURL *)info[UIImagePickerControllerImageURL];
+            NSString *imageName;
+            NSString *ext;
+            NSString *mimeType;
+            
+            if (imagePath != nil) {
+                imageName = imagePath.lastPathComponent;
+                ext = imageName.pathExtension;
+                CFStringRef UTI = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (__bridge CFStringRef)(ext), nil);
+                CFStringRef retainedValueMimeType = UTTypeCopyPreferredTagWithClass(UTI, kUTTagClassMIMEType);
+                mimeType = (__bridge NSString *)retainedValueMimeType;
+                imageData = [NSData dataWithContentsOfURL:imagePath];
+            }
+            else {
+                UIImage *originalImage = (UIImage *)[pickerInfo objectForKey:UIImagePickerControllerOriginalImage];
+                imageData = UIImageJPEGRepresentation(originalImage, 1.0);
+                imageName = @"image.jpg";
+                mimeType = @"image/jpeg";
+            }
 
-                NSString *filename = @"";
-                if ([mimeType isEqualToString:@"image/gif"]) {
-                    NSURL *fileurl = [info objectForKey:@"PHImageFileURLKey"];
-                    filename = [fileurl lastPathComponent];
-                }
-                else {
-                    UIImage *originalImage = (UIImage *)[pickerInfo objectForKey:UIImagePickerControllerOriginalImage];
-                    imageData = UIImageJPEGRepresentation(originalImage, 1.0);
-                    filename = @"image.jpg";
-                    mimeType = @"image/jpeg";
-                }
-
-                if (!imageData) {
-                    // fail
-                } else {
-                    // success, data is in imageData
-                    /***********************************/
-                    /* Thumbnail is a premium feature. */
-                    /***********************************/
-                    SBDThumbnailSize *thumbnailSize = [SBDThumbnailSize makeWithMaxWidth:320.0 maxHeight:320.0];
-                    
-                    __block SBDFileMessage *preSendMessage = [strongSelf.channel sendFileMessageWithBinaryData:imageData filename:filename type:mimeType size:imageData.length thumbnailSizes:@[thumbnailSize] data:nil customType:nil progressHandler:^(int64_t bytesSent, int64_t totalBytesSent, int64_t totalBytesExpectedToSend) {
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            if (strongSelf.sendingImageVideoMessage[preSendMessage.requestId] == nil || [strongSelf.sendingImageVideoMessage[preSendMessage.requestId] isKindOfClass:[NSNull class]]) {
-                                strongSelf.sendingImageVideoMessage[preSendMessage.requestId] = @(NO);
-                            }
-                            strongSelf.fileTrasnferProgress[preSendMessage.requestId] = @((CGFloat)totalBytesSent / (CGFloat)totalBytesExpectedToSend);
-                            for (NSInteger index = strongSelf.messages.count - 1; index >= 0; index--) {
-                                SBDBaseMessage *baseMessage = strongSelf.messages[index];
-                                if ([baseMessage isKindOfClass:[SBDFileMessage class]]) {
-                                    SBDFileMessage *fileMesssage = (SBDFileMessage *)baseMessage;
-                                    if (fileMesssage.requestId != nil && [fileMesssage.requestId isEqualToString:preSendMessage.requestId]) {
-                                        [strongSelf determineScrollLock];
-                                        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
-                                        if ([strongSelf.sendingImageVideoMessage[preSendMessage.requestId] boolValue] == NO) {
-                                            [strongSelf.messageTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-                                            strongSelf.sendingImageVideoMessage[preSendMessage.requestId] = @(YES);
-                                            [strongSelf scrollToBottomWithForce:NO];
-                                        }
-                                        else {
-                                            GroupChannelOutgoingImageVideoFileMessageTableViewCell *cell = [strongSelf.messageTableView cellForRowAtIndexPath:indexPath];
-                                            [cell showProgress:(CGFloat)totalBytesSent / (CGFloat)totalBytesExpectedToSend];
-                                        }
-                                        
-                                        break;
+            if (!imageData) {
+                // fail
+            } else {
+                // success, data is in imageData
+                /***********************************/
+                /* Thumbnail is a premium feature. */
+                /***********************************/
+                SBDThumbnailSize *thumbnailSize = [SBDThumbnailSize makeWithMaxWidth:320.0 maxHeight:320.0];
+                
+                __block SBDFileMessage *preSendMessage = [self.channel sendFileMessageWithBinaryData:imageData filename:imageName type:mimeType size:imageData.length thumbnailSizes:@[thumbnailSize] data:nil customType:nil progressHandler:^(int64_t bytesSent, int64_t totalBytesSent, int64_t totalBytesExpectedToSend) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        if (self.sendingImageVideoMessage[preSendMessage.requestId] == nil || [self.sendingImageVideoMessage[preSendMessage.requestId] isKindOfClass:[NSNull class]]) {
+                            self.sendingImageVideoMessage[preSendMessage.requestId] = @(NO);
+                        }
+                        self.fileTrasnferProgress[preSendMessage.requestId] = @((CGFloat)totalBytesSent / (CGFloat)totalBytesExpectedToSend);
+                        for (NSInteger index = self.messages.count - 1; index >= 0; index--) {
+                            SBDBaseMessage *baseMessage = self.messages[index];
+                            if ([baseMessage isKindOfClass:[SBDFileMessage class]]) {
+                                SBDFileMessage *fileMesssage = (SBDFileMessage *)baseMessage;
+                                if (fileMesssage.requestId != nil && [fileMesssage.requestId isEqualToString:preSendMessage.requestId]) {
+                                    [self determineScrollLock];
+                                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+                                    if ([self.sendingImageVideoMessage[preSendMessage.requestId] boolValue] == NO) {
+                                        [self.messageTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+                                        self.sendingImageVideoMessage[preSendMessage.requestId] = @(YES);
+                                        [self scrollToBottomWithForce:NO];
                                     }
+                                    else {
+                                        GroupChannelOutgoingImageVideoFileMessageTableViewCell *cell = [self.messageTableView cellForRowAtIndexPath:indexPath];
+                                        [cell showProgress:(CGFloat)totalBytesSent / (CGFloat)totalBytesExpectedToSend];
+                                    }
+                                    
+                                    break;
                                 }
                             }
-                        });
-                    } completionHandler:^(SBDFileMessage * _Nullable fileMessage, SBDError * _Nullable error) {
-                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(150 * NSEC_PER_MSEC)), dispatch_get_main_queue(), ^{
-                            SBDFileMessage *preSendMessage = (SBDFileMessage *)strongSelf.preSendMessages[fileMessage.requestId];
-
-                            [strongSelf.preSendMessages removeObjectForKey:fileMessage.requestId];
-                            [strongSelf.sendingImageVideoMessage removeObjectForKey:fileMessage.requestId];
-
-                            if (error != nil) {
-                                dispatch_async(dispatch_get_main_queue(), ^{
-                                    strongSelf.resendableMessages[fileMessage.requestId] = preSendMessage;
-                                    strongSelf.resendableFileData[preSendMessage.requestId] = @{
-                                                                                                @"data": imageData,
-                                                                                                @"type": mimeType,
-                                                                                                @"filename": filename,
-                                                                                                };
-                                    [strongSelf.messageTableView reloadData];
-                                    [strongSelf.messageTableView layoutIfNeeded];
-
-                                    [self scrollToBottomWithForce:YES];
-                                });
-
-                                return;
-                            }
-
-                            if (self.delegate != nil && [self.delegate respondsToSelector:@selector(updateGroupChannelList)]) {
-                                [self.delegate updateGroupChannelList];
-                            }
-
-                            if (fileMessage != nil) {
-                                dispatch_async(dispatch_get_main_queue(), ^{
-                                    [strongSelf determineScrollLock];
-                                    [strongSelf.resendableMessages removeObjectForKey:fileMessage.requestId];
-                                    [strongSelf.resendableFileData removeObjectForKey:fileMessage.requestId];
-                                    [strongSelf.messages replaceObjectAtIndex:[self.messages indexOfObject:preSendMessage] withObject:fileMessage];
-
-                                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.messages indexOfObject:fileMessage] inSection:0];
-                                    [strongSelf.messageTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-                                    [strongSelf.messageTableView layoutIfNeeded];
-
-                                    [strongSelf scrollToBottomWithForce:NO];
-                                });
-                            }
-                        });
-                    }];
-                    
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        [strongSelf determineScrollLock];
-                        strongSelf.fileTrasnferProgress[preSendMessage.requestId] = @(0);
-                        strongSelf.preSendFileData[preSendMessage.requestId] = [[NSMutableDictionary alloc] initWithDictionary:@{
-                                                                                                                                 @"data": imageData,
-                                                                                                                                 @"type": mimeType,
-                                                                                                                                 @"filename": filename,
-                                                                                                                                 }];
-                        strongSelf.preSendMessages[preSendMessage.requestId] = preSendMessage;
-                        [strongSelf.messages addObject:preSendMessage];
-                        [UIView setAnimationsEnabled:NO];
-                        [strongSelf.messageTableView reloadData];
-                        [strongSelf.messageTableView layoutIfNeeded];
-                        [UIView setAnimationsEnabled:YES];
-                        [strongSelf scrollToBottomWithForce:NO];
+                        }
                     });
-                }
-            }];
+                } completionHandler:^(SBDFileMessage * _Nullable fileMessage, SBDError * _Nullable error) {
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(150 * NSEC_PER_MSEC)), dispatch_get_main_queue(), ^{
+                        SBDFileMessage *preSendMessage = (SBDFileMessage *)self.preSendMessages[fileMessage.requestId];
+
+                        [self.preSendMessages removeObjectForKey:fileMessage.requestId];
+                        [self.sendingImageVideoMessage removeObjectForKey:fileMessage.requestId];
+
+                        if (error != nil) {
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                self.resendableMessages[fileMessage.requestId] = preSendMessage;
+                                self.resendableFileData[preSendMessage.requestId] = @{
+                                                                                            @"data": imageData,
+                                                                                            @"type": mimeType,
+                                                                                            @"filename": imageName,
+                                                                                            };
+                                [self.messageTableView reloadData];
+                                [self.messageTableView layoutIfNeeded];
+
+                                [self scrollToBottomWithForce:YES];
+                            });
+
+                            return;
+                        }
+
+                        if (self.delegate != nil && [self.delegate respondsToSelector:@selector(updateGroupChannelList)]) {
+                            [self.delegate updateGroupChannelList];
+                        }
+
+                        if (fileMessage != nil) {
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                [self determineScrollLock];
+                                [self.resendableMessages removeObjectForKey:fileMessage.requestId];
+                                [self.resendableFileData removeObjectForKey:fileMessage.requestId];
+                                [self.messages replaceObjectAtIndex:[self.messages indexOfObject:preSendMessage]
+                                                         withObject:fileMessage];
+
+                                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.messages indexOfObject:fileMessage] inSection:0];
+                                [self.messageTableView reloadRowsAtIndexPaths:@[indexPath]
+                                                             withRowAnimation:UITableViewRowAnimationNone];
+                                [self.messageTableView layoutIfNeeded];
+
+                                [self scrollToBottomWithForce:NO];
+                            });
+                        }
+                    });
+                }];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.fileTrasnferProgress[preSendMessage.requestId] = @(0);
+                    self.preSendFileData[preSendMessage.requestId] = [[NSMutableDictionary alloc] initWithDictionary:@{
+                                                                                                                             @"data": imageData,
+                                                                                                                             @"type": mimeType,
+                                                                                                                             @"filename": imageName,
+                                                                                                                             }];
+                    [self determineScrollLock];
+                    self.preSendMessages[preSendMessage.requestId] = preSendMessage;
+                    [self.messages addObject:preSendMessage];
+                    [self.messageTableView reloadData];
+                    
+                    [self scrollToBottomWithForce:NO];
+                });
+            }
         }
         else if (CFStringCompare ((CFStringRef) mediaType, kUTTypeMovie, 0) == kCFCompareEqualTo) {
             NSURL *videoURL = [info objectForKey:UIImagePickerControllerMediaURL];
@@ -1430,26 +1430,27 @@
             /* Thumbnail is a premium feature. */
             /***********************************/
             SBDThumbnailSize *thumbnailSize = [SBDThumbnailSize makeWithMaxWidth:320.0 maxHeight:320.0];
-            __block SBDFileMessage *preSendMessage = [strongSelf.channel sendFileMessageWithBinaryData:videoFileData filename:videoName type:mimeType size:videoFileData.length thumbnailSizes:@[thumbnailSize] data:nil customType:nil progressHandler:^(int64_t bytesSent, int64_t totalBytesSent, int64_t totalBytesExpectedToSend) {
+            __block SBDFileMessage *preSendMessage = [self.channel sendFileMessageWithBinaryData:videoFileData filename:videoName type:mimeType size:videoFileData.length thumbnailSizes:@[thumbnailSize] data:nil customType:nil progressHandler:^(int64_t bytesSent, int64_t totalBytesSent, int64_t totalBytesExpectedToSend) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    if (strongSelf.sendingImageVideoMessage[preSendMessage.requestId] == nil || [strongSelf.sendingImageVideoMessage[preSendMessage.requestId] isKindOfClass:[NSNull class]]) {
-                        strongSelf.sendingImageVideoMessage[preSendMessage.requestId] = @(NO);
+                    if (self.sendingImageVideoMessage[preSendMessage.requestId] == nil || [self.sendingImageVideoMessage[preSendMessage.requestId] isKindOfClass:[NSNull class]]) {
+                        self.sendingImageVideoMessage[preSendMessage.requestId] = @(NO);
                     }
-                    strongSelf.fileTrasnferProgress[preSendMessage.requestId] = @((CGFloat)totalBytesSent / (CGFloat)totalBytesExpectedToSend);
-                    for (NSInteger index = strongSelf.messages.count - 1; index >= 0; index--) {
-                        SBDBaseMessage *baseMessage = strongSelf.messages[index];
+                    self.fileTrasnferProgress[preSendMessage.requestId] = @((CGFloat)totalBytesSent / (CGFloat)totalBytesExpectedToSend);
+                    for (NSInteger index = self.messages.count - 1; index >= 0; index--) {
+                        SBDBaseMessage *baseMessage = self.messages[index];
                         if ([baseMessage isKindOfClass:[SBDFileMessage class]]) {
                             SBDFileMessage *fileMesssage = (SBDFileMessage *)baseMessage;
                             if (fileMesssage.requestId != nil && [fileMesssage.requestId isEqualToString:preSendMessage.requestId]) {
-                                [strongSelf determineScrollLock];
+                                [self determineScrollLock];
                                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
-                                if ([strongSelf.sendingImageVideoMessage[preSendMessage.requestId] boolValue] == NO) {
-                                    [strongSelf.messageTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-                                    strongSelf.sendingImageVideoMessage[preSendMessage.requestId] = @(YES);
-                                    [strongSelf scrollToBottomWithForce:NO];
+                                if ([self.sendingImageVideoMessage[preSendMessage.requestId] boolValue] == NO) {
+                                    [self.messageTableView reloadRowsAtIndexPaths:@[indexPath]
+                                                                 withRowAnimation:UITableViewRowAnimationNone];
+                                    self.sendingImageVideoMessage[preSendMessage.requestId] = @(YES);
+                                    [self scrollToBottomWithForce:NO];
                                 }
                                 else {
-                                    GroupChannelOutgoingImageVideoFileMessageTableViewCell *cell = [strongSelf.messageTableView cellForRowAtIndexPath:indexPath];
+                                    GroupChannelOutgoingImageVideoFileMessageTableViewCell *cell = [self.messageTableView cellForRowAtIndexPath:indexPath];
                                     [cell showProgress:(CGFloat)totalBytesSent / (CGFloat)totalBytesExpectedToSend];
                                 }
                                 
@@ -1460,20 +1461,20 @@
                 });
             } completionHandler:^(SBDFileMessage * _Nullable fileMessage, SBDError * _Nullable error) {
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(150 * NSEC_PER_MSEC)), dispatch_get_main_queue(), ^{
-                    SBDFileMessage *preSendMessage = (SBDFileMessage *)strongSelf.preSendMessages[fileMessage.requestId];
+                    SBDFileMessage *preSendMessage = (SBDFileMessage *)self.preSendMessages[fileMessage.requestId];
                     
-                    [strongSelf.preSendMessages removeObjectForKey:fileMessage.requestId];
-                    [strongSelf.sendingImageVideoMessage removeObjectForKey:fileMessage.requestId];
+                    [self.preSendMessages removeObjectForKey:fileMessage.requestId];
+                    [self.sendingImageVideoMessage removeObjectForKey:fileMessage.requestId];
                     
                     if (error != nil) {
                         dispatch_async(dispatch_get_main_queue(), ^{
-                            strongSelf.resendableMessages[fileMessage.requestId] = preSendMessage;
-                            strongSelf.resendableFileData[preSendMessage.requestId] = @{
+                            self.resendableMessages[fileMessage.requestId] = preSendMessage;
+                            self.resendableFileData[preSendMessage.requestId] = @{
                                                                                         @"data": videoFileData,
                                                                                         @"type": mimeType,
                                                                                         @"filename": videoName,
                                                                                         };
-                            [strongSelf.messageTableView reloadData];
+                            [self.messageTableView reloadData];
                         
                             [self scrollToBottomWithForce:YES];
                         });
@@ -1481,39 +1482,39 @@
                         return;
                     }
                     
-                    if (strongSelf.delegate != nil && [strongSelf.delegate respondsToSelector:@selector(updateGroupChannelList)]) {
-                        [strongSelf.delegate updateGroupChannelList];
+                    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(updateGroupChannelList)]) {
+                        [self.delegate updateGroupChannelList];
                     }
                     
                     if (fileMessage != nil) {
                         dispatch_async(dispatch_get_main_queue(), ^{
-                            [strongSelf determineScrollLock];
-                            [strongSelf.resendableMessages removeObjectForKey:fileMessage.requestId];
-                            [strongSelf.resendableFileData removeObjectForKey:fileMessage.requestId];
-                            [strongSelf.messages replaceObjectAtIndex:[strongSelf.messages indexOfObject:preSendMessage] withObject:fileMessage];
+                            [self determineScrollLock];
+                            [self.resendableMessages removeObjectForKey:fileMessage.requestId];
+                            [self.resendableFileData removeObjectForKey:fileMessage.requestId];
+                            [self.messages replaceObjectAtIndex:[self.messages indexOfObject:preSendMessage] withObject:fileMessage];
                             
-                            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[strongSelf.messages indexOfObject:fileMessage] inSection:0];
-                            [strongSelf.messageTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+                            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.messages indexOfObject:fileMessage] inSection:0];
+                            [self.messageTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 
-                            [strongSelf scrollToBottomWithForce:NO];
+                            [self scrollToBottomWithForce:NO];
                         });
                     }
                 });
             }];
             
             dispatch_async(dispatch_get_main_queue(), ^{
-                strongSelf.fileTrasnferProgress[preSendMessage.requestId] = @(0);
-                strongSelf.preSendFileData[preSendMessage.requestId] = [[NSMutableDictionary alloc] initWithDictionary:@{
+                self.fileTrasnferProgress[preSendMessage.requestId] = @(0);
+                self.preSendFileData[preSendMessage.requestId] = [[NSMutableDictionary alloc] initWithDictionary:@{
                                                                                                                          @"data": videoFileData,
                                                                                                                          @"type": mimeType,
                                                                                                                          @"filename": videoName,
                                                                                                                          }];
-                [strongSelf determineScrollLock];
-                strongSelf.preSendMessages[preSendMessage.requestId] = preSendMessage;
-                [strongSelf.messages addObject:preSendMessage];
-                [strongSelf.messageTableView reloadData];
+                [self determineScrollLock];
+                self.preSendMessages[preSendMessage.requestId] = preSendMessage;
+                [self.messages addObject:preSendMessage];
+                [self.messageTableView reloadData];
                 
-                [strongSelf scrollToBottomWithForce:NO];
+                [self scrollToBottomWithForce:NO];
             });
         }
     }];

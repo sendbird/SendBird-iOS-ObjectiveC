@@ -505,7 +505,7 @@
 
         [ac addAction:actionConfirmSignOut];
         [ac addAction:actionCancelAction];
-
+        
         [self presentViewController:ac animated:YES completion:nil];
     }
     

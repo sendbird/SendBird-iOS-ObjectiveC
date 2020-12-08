@@ -116,6 +116,7 @@
 - (void)clickCreateGroupChannel:(id)sender {
     CreateGroupChannelNavigationController *vc = [[CreateGroupChannelNavigationController alloc] init];
     vc.channelCreationDelegate = self;
+    vc.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:vc animated:YES completion:nil];
 }
 

@@ -7,24 +7,24 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SBDUser.h"
+
+#import "SBDAppInfo.h"
+#import "SBDApplicationUserListQuery.h"
 #import "SBDBaseChannel.h"
+#import "SBDBlockedUserListQuery.h"
 #import "SBDEmoji.h"
+#import "SBDFriendListQuery.h"
 #import "SBDGroupChannel.h"
 #import "SBDGroupChannelChangeLogsParams.h"
-#import "SBDOpenChannelListQuery.h"
 #import "SBDGroupChannelListQuery.h"
-#import "SBDTypes.h"
-#import "SBDUserListQuery.h"
 #import "SBDInternalTypes.h"
-#import "SBDFriendListQuery.h"
-#import "SBDApplicationUserListQuery.h"
-#import "SBDBlockedUserListQuery.h"
-#import "SBDAppInfo.h"
+#import "SBDOpenChannelListQuery.h"
+#import "SBDSessionDelegate.h"
+#import "SBDTypes.h"
+#import "SBDUser.h"
+#import "SBDUserListQuery.h"
 
 typedef void(^SBDBackgroundSessionBlock)(void);
-
-
 
 /**
  *  An object that adopts the `SBDConnectionDelegate` protocol is responsible for managing the connection statuses. This delegate includes three statuses: reconnection start, reconnection succession, and reconnection failure. The `SBDConnectionDelegate` can be added by [`addConnectionDelegate:identifier:`](../Classes/SBDMain.html#//api/name/addConnectionDelegate:identifier:) in `SBDMain`. Every `SBDConnectionDelegate` method which is added is going to manage the statues.
@@ -132,7 +132,7 @@ typedef void(^SBDBackgroundSessionBlock)(void);
  *
  *  @return If YES, this instance is debug mode.
  */
-+ (BOOL)getDebugMode;
++ (BOOL)getDebugMode DEPRECATED_ATTRIBUTE;
 
 /**
  *  Gets a singleton instance of `SBDMain`.
@@ -701,6 +701,8 @@ typedef void(^SBDBackgroundSessionBlock)(void);
 + (void)getChannelInvitationPreferenceAutoAcceptWithCompletionHandler:(nullable void (^)(BOOL autoAccept, SBDError * _Nullable error))completionHandler;
 
 #pragma mark - User Event
++ (nullable id<SBDUserEventDelegate>)userEventDelegateForIdentifier:(NSString * _Nonnull)identifier;
+
 + (void)addUserEventDelegate:(id<SBDUserEventDelegate> _Nonnull)delegate
                   identifier:(NSString * _Nonnull)identifier;
 
@@ -710,6 +712,16 @@ typedef void(^SBDBackgroundSessionBlock)(void);
 
 #pragma mark - Friend List
 + (nullable SBDFriendListQuery *)createFriendListQuery;
+
+/// Sets current user to be discoverable by others
+/// @param allow if YES, current user will be set to discoverable by others
+/// @since 3.0.205
++ (void)setAllowFriendDiscovery:(BOOL)allow
+              completionHandler:(nullable void (^)(SBDError * _Nullable error))completionHandler;
+
+/// Gets a flag whether current user is discoverable or not by others
+/// @since 3.0.205
++ (void)getAllowFriendDiscoveryWithCompletionHandler:(nullable void (^)(BOOL allowed, SBDError * _Nullable error))completionHandler;
 
 + (void)addFriendsWithUserIds:(NSArray<NSString *> * _Nonnull)userIds
             completionHandler:(nullable void (^)(NSArray<SBDUser *> * _Nullable users, SBDError * _Nullable error))completionHandler;
@@ -805,14 +817,13 @@ typedef void(^SBDBackgroundSessionBlock)(void);
 + (NSInteger)getSubscribedCustomTypeTotalUnreadMessageCount;
 + (NSInteger)getSubscribedCustomTypeUnreadMessageCountWithCustomType:(nonnull NSString *)customType;
 
-/**
- * Marks as delivered a group channel of the current user.
- *
- * @param channelUrl The channel URL.
- *
- * @since 3.0.162
- */
-+ (void)markAsDeliveredWithChannelUrl:(nonnull NSString *)channelUrl;
+/// Marks as delivered a group channel of the current user.
+/// @param channelUrl The channel URL.
+/// @since 3.0.162
+/// @deprecated 3.0.185
+/// @note The client doesn't have to call this method any longer.
++ (void)markAsDeliveredWithChannelUrl:(nonnull NSString *)channelUrl
+DEPRECATED_ATTRIBUTE;
 
 #pragma mark - channel change logs
 /**
@@ -970,6 +981,16 @@ completionHandler:(nullable void (^)(SBDEmoji * _Nullable emoji, SBDError * _Nul
 /// @since 3.0.183
 + (void)markAsDeliveredWithRemoteNotificationPayload:(nonnull NSDictionary *)payload
                                    completionHandler:(nullable void (^)(SBDError * _Nullable error))completionHandler;
+
+#pragma mark - Key for file encryption
+/// Gets the key to authenticate the file URL. This has to be put into the HTTP header when the client needs to access it.
+/// @return The key to authenticate the file URL
+/// @since 3.0.194
++ (nullable NSString *)ekey;
+
+#pragma mark - Session Expiration
++ (void)setSessionDelegate:(id<SBDSessionDelegate> _Nonnull)delegate;
++ (void)removeSessionDelegate;
 
 @end
 
