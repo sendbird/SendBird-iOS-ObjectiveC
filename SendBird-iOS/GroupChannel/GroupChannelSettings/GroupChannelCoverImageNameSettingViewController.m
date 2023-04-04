@@ -170,7 +170,7 @@
     __weak GroupChannelCoverImageNameSettingViewController *weakSelf = self;
     [picker dismissViewControllerAnimated:YES completion:^{
         GroupChannelCoverImageNameSettingViewController *strongSelf = weakSelf;
-        if (CFStringCompare ((CFStringRef) mediaType, kUTTypeImage, 0) == kCFCompareEqualTo) {
+        if (CFStringCompare ((__bridge CFStringRef) mediaType, kUTTypeImage, 0) == kCFCompareEqualTo) {
             UIImage *originalImage;
             originalImage = (UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage];
             if (originalImage != nil) {

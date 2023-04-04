@@ -105,7 +105,7 @@
     __weak OpenChannelCoverImageNameSettingViewController *weakSelf = self;
     [picker dismissViewControllerAnimated:YES completion:^{
         OpenChannelCoverImageNameSettingViewController *strongSelf = weakSelf;
-        if (CFStringCompare ((CFStringRef) mediaType, kUTTypeImage, 0) == kCFCompareEqualTo) {
+        if (CFStringCompare ((__bridge CFStringRef) mediaType, kUTTypeImage, 0) == kCFCompareEqualTo) {
             UIImage *originalImage;
             originalImage = (UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage];
             if (originalImage != nil) {
@@ -140,7 +140,7 @@
     [controller dismissViewControllerAnimated:NO completion:nil];
 }
 
-// The original image has been cropped. Additionally provides a rotation angle used to produce image.
+// The original image has been cropped. Additionally, provides a rotation angle used to produce image.
 - (void)imageCropViewController:(RSKImageCropViewController *)controller
                    didCropImage:(UIImage *)croppedImage
                   usingCropRect:(CGRect)cropRect
