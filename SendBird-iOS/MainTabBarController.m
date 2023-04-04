@@ -30,7 +30,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
-    [SBDConnectionManager addNetworkDelegate:self identifier:self.description];
     [SBDMain addChannelDelegate:self identifier:self.description];
     
     GroupChannelsNavigationController *groupChannelsNavigationController = [[GroupChannelsNavigationController alloc] init];

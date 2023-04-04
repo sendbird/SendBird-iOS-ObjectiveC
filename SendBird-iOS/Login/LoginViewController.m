@@ -34,7 +34,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    [SBDConnectionManager setAuthenticateDelegate:nil];
 
     self.keyboardShown = NO;
     self.logoChanged = NO;
@@ -151,8 +150,63 @@
         
         [self setUIsWhileConnecting];
         
-        [SBDConnectionManager setAuthenticateDelegate:self];
-        [SBDConnectionManager authenticate];
+        [SBDMain connectWithUserId:userId completionHandler:^(SBDUser * _Nullable user, SBDError * _Nullable error) {
+
+            if (error != nil) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self setUIsForDefault];
+                });
+                [Utils showAlertControllerWithError:[SBDError errorWithNSError:error] viewController:self];
+                
+                return;
+            }
+            
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"sendbird_auto_login"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self setUIsForDefault];
+                
+                MainTabBarController *tabBarVC = [[MainTabBarController alloc] initWithNibName:@"MainTabBarController" bundle:nil];
+                tabBarVC.modalPresentationStyle = UIModalPresentationFullScreen;
+                [self presentViewController:tabBarVC animated:YES completion:nil];
+            });
+
+            [SBDMain getDoNotDisturbWithCompletionHandler:^(BOOL isDoNotDisturbOn, int startHour, int startMin, int endHour, int endMin, NSString * _Nonnull timezone, SBDError * _Nullable error) {
+                [[NSUserDefaults standardUserDefaults] setInteger:startHour forKey:@"sendbird_dnd_start_hour"];
+                [[NSUserDefaults standardUserDefaults] setInteger:startMin forKey:@"sendbird_dnd_start_min"];
+                [[NSUserDefaults standardUserDefaults] setInteger:endHour forKey:@"sendbird_dnd_end_hour"];
+                [[NSUserDefaults standardUserDefaults] setInteger:endMin forKey:@"sendbird_dnd_end_min"];
+                [[NSUserDefaults standardUserDefaults] setBool:isDoNotDisturbOn forKey:@"sendbird_dnd_on"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+            }];
+            
+            [SBDMain registerDevicePushToken:[SBDMain getPendingPushToken] unique:YES completionHandler:^(SBDPushTokenRegistrationStatus status, SBDError * _Nullable error) {
+                if (error != nil) {
+                    NSLog(@"APNS registration failed.");
+                    return;
+                }
+                if (status == SBDPushTokenRegistrationStatusPending) {
+                    NSLog(@"Push registration is pending.");
+                }
+                else {
+                    NSLog(@"APNS Token is registered.");
+                }
+            }];
+            
+            NSString *nickname = [[NSUserDefaults standardUserDefaults] objectForKey:@"sendbird_user_nickname"];
+            [SBDMain updateCurrentUserInfoWithNickname:nickname profileUrl:nil completionHandler:^(SBDError * _Nullable error) {
+                if (error != nil) {
+                    [SBDMain disconnectWithCompletionHandler:^{
+                        [Utils showAlertControllerWithError:error viewController:self];
+                    }];
+                    
+                    return;
+                }
+            }];
+            
+            [self setUIsForDefault];
+        }];
     }
     else {
         [SBDMain disconnectWithCompletionHandler:^{
@@ -174,67 +228,6 @@
     }
     
     return YES;
-}
-
-#pragma mark - SBDAuthenticateDelegate
-- (void)shouldHandleAuthInfoWithCompletionHandler:(void (^)(NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable))completionHandler {
-    NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"sendbird_user_id"];
-    completionHandler(userId, nil, nil, nil);
-}
-
-- (void)didFinishAuthenticationWithUser:(SBDUser *)user error:(SBDError *)error {
-    if (error != nil) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self setUIsForDefault];
-        });
-        [Utils showAlertControllerWithError:[SBDError errorWithNSError:error] viewController:self];
-        
-        return;
-    }
-    
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"sendbird_auto_login"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self setUIsForDefault];
-        
-        MainTabBarController *tabBarVC = [[MainTabBarController alloc] initWithNibName:@"MainTabBarController" bundle:nil];
-        tabBarVC.modalPresentationStyle = UIModalPresentationFullScreen;
-        [self presentViewController:tabBarVC animated:YES completion:nil];
-    });
-
-    [SBDMain getDoNotDisturbWithCompletionHandler:^(BOOL isDoNotDisturbOn, int startHour, int startMin, int endHour, int endMin, NSString * _Nonnull timezone, SBDError * _Nullable error) {
-        [[NSUserDefaults standardUserDefaults] setInteger:startHour forKey:@"sendbird_dnd_start_hour"];
-        [[NSUserDefaults standardUserDefaults] setInteger:startMin forKey:@"sendbird_dnd_start_min"];
-        [[NSUserDefaults standardUserDefaults] setInteger:endHour forKey:@"sendbird_dnd_end_hour"];
-        [[NSUserDefaults standardUserDefaults] setInteger:endMin forKey:@"sendbird_dnd_end_min"];
-        [[NSUserDefaults standardUserDefaults] setBool:isDoNotDisturbOn forKey:@"sendbird_dnd_on"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }];
-    
-    [SBDMain registerDevicePushToken:[SBDMain getPendingPushToken] unique:YES completionHandler:^(SBDPushTokenRegistrationStatus status, SBDError * _Nullable error) {
-        if (error != nil) {
-            NSLog(@"APNS registration failed.");
-            return;
-        }
-        if (status == SBDPushTokenRegistrationStatusPending) {
-            NSLog(@"Push registration is pending.");
-        }
-        else {
-            NSLog(@"APNS Token is registered.");
-        }
-    }];
-    
-    NSString *nickname = [[NSUserDefaults standardUserDefaults] objectForKey:@"sendbird_user_nickname"];
-    [SBDMain updateCurrentUserInfoWithNickname:nickname profileUrl:nil completionHandler:^(SBDError * _Nullable error) {
-        if (error != nil) {
-            [SBDMain disconnectWithCompletionHandler:^{
-                [Utils showAlertControllerWithError:error viewController:self];
-            }];
-            
-            return;
-        }
-    }];
 }
 
 #pragma mark - NotificationDelegate

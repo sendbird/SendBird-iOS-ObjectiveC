@@ -123,8 +123,6 @@
     [SBDMain addChannelDelegate:self identifier:self.description];
     [SBDMain addConnectionDelegate:self identifier:self.description];
     
-    // TODO: Fix bug in SDK.
-    [SBDConnectionManager addNetworkDelegate:self identifier:self.description];
     
     self.resendableMessages = [[NSMutableDictionary alloc] init];
     self.preSendMessages = [[NSMutableDictionary alloc] init];
@@ -188,10 +186,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)dealloc {
-    [SBDConnectionManager removeNetworkDelegateForIdentifier:self.description];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

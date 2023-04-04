@@ -198,9 +198,6 @@
     NSDictionary *userInfo = response.notification.request.content.userInfo;
     self.pushReceivedGroupChannel = userInfo[@"sendbird"][@"channel"][@"channel_url"];
     
-    [SBDConnectionManager setAuthenticateDelegate:self];
-    [SBDConnectionManager authenticate];
-
     completionHandler();
 }
 

@@ -177,10 +177,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)dealloc {
-    [SBDConnectionManager removeNetworkDelegateForIdentifier:self.description];
-}
-
 - (void)showToast:(NSString *)message {
     self.toastView.alpha = 1;
     self.toastMessageLabel.text = message;

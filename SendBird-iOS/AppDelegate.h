@@ -10,12 +10,12 @@
 #import <UserNotifications/UserNotifications.h>
 #import <SendBirdSDK/SendBirdSDK.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, UNUserNotificationCenterDelegate, SBDAuthenticateDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, UNUserNotificationCenterDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) UIWindow * _Nonnull window;
 
 @property (strong, nonatomic, nullable) NSString *receivedPushChannelUrl;
-@property (strong) NSString *pushReceivedGroupChannel;
+@property (strong) NSString * _Nonnull pushReceivedGroupChannel;
 
 @end
 
