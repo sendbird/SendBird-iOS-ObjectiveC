@@ -14,7 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - FLAnimatedImage (1.0.12)
+  - FLAnimatedImage (1.0.17)
   - NYTPhotoViewer (1.1.0):
     - NYTPhotoViewer/AnimatedGifSupport (= 1.1.0)
     - NYTPhotoViewer/Core (= 1.1.0)
@@ -22,8 +22,8 @@ PODS:
     - FLAnimatedImage (~> 1.0.8)
     - NYTPhotoViewer/Core
   - NYTPhotoViewer/Core (1.1.0)
-  - RSKImageCropper (3.0.0)
-  - SendBirdSDK (3.0.208)
+  - RSKImageCropper (3.0.2)
+  - SendBirdSDK (3.1.44)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
@@ -41,12 +41,12 @@ SPEC REPOS:
     - SendBirdSDK
 
 SPEC CHECKSUMS:
-  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  AFNetworking: cb604b1c2bded0871f5f61f5d53653739e841d6b
+  FLAnimatedImage: bbf914596368867157cc71b38a8ec834b3eeb32b
   NYTPhotoViewer: e80e8767f3780d2df37c6f72cbab15d6c7232911
-  RSKImageCropper: 81f449b4df96bdaf28e1ad6dcce28dcda2235458
-  SendBirdSDK: d94f34c0712c6b12cf63abbea9c62b6f0fec14e8
+  RSKImageCropper: 1ac71e9a82e3f41eea3eedfff8eacb0d3821c9ec
+  SendBirdSDK: 5157bd3e70db9d0bb23e27a8f4744125dbf85536
 
-PODFILE CHECKSUM: f18a254c94581b82a33a539b0247e04a96fa99e4
+PODFILE CHECKSUM: ac3ca030e076f8170936c1017d9b4960bd07d730
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.12.0
