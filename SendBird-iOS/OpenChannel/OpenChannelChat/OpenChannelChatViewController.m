@@ -209,7 +209,15 @@
         return;
     }
     
-    [self.channel getPreviousMessagesByTimestamp:timestamp limit:30 reverse:!initial messageType:SBDMessageTypeFilterAll customType:nil completionHandler:^(NSArray<SBDBaseMessage *> * _Nullable messages, SBDError * _Nullable error) {
+    SBDMessageListParams *params = [[SBDMessageListParams alloc] init];
+
+    params.previousResultSize = 30;
+    params.reverse = !initial;
+    params.customType = nil;
+    params.messageType = SBDMessageTypeFilterAll;
+
+    [self.channel getMessagesByTimestamp:timestamp params:params completionHandler:^(NSArray<SBDBaseMessage *> * _Nullable messages, SBDError * _Nullable error) {
+
         if (error != nil) {
             self.isLoading = NO;
             
@@ -1401,7 +1409,7 @@
     [controller dismissViewControllerAnimated:NO completion:nil];
 }
 
-// The original image has been cropped. Additionally provides a rotation angle used to produce image.
+// The original image has been cropped. Additionally, provides a rotation angle used to produce image.
 - (void)imageCropViewController:(RSKImageCropViewController *)controller
                    didCropImage:(UIImage *)croppedImage
                   usingCropRect:(CGRect)cropRect

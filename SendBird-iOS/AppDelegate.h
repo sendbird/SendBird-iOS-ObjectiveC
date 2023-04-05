@@ -12,10 +12,10 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UNUserNotificationCenterDelegate>
 
-@property (strong, nonatomic) UIWindow * _Nonnull window;
+@property (strong, nonatomic) UIWindow * _Nullable window;
 
 @property (strong, nonatomic, nullable) NSString *receivedPushChannelUrl;
-@property (strong) NSString * _Nonnull pushReceivedGroupChannel;
+@property (strong) NSString * _Nullable pushReceivedGroupChannel;
 
 @end
 

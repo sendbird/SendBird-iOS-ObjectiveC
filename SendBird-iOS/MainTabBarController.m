@@ -113,7 +113,7 @@
         return;
     }
     
-    if (!((SBDGroupChannel *)sender).isPushEnabled) {
+    if (((SBDGroupChannel *)sender).myPushTriggerOption == SBDGroupChannelPushTriggerOptionOff) {
         return;
     }
     

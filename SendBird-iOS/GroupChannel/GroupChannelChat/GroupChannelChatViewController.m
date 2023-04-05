@@ -287,8 +287,16 @@
     if (self.hasPrevious == NO) {
         return;
     }
+    
+    SBDMessageListParams *params = [[SBDMessageListParams alloc] init];
 
-    [self.channel getPreviousMessagesByTimestamp:timestamp limit:30 reverse:!initial messageType:SBDMessageTypeFilterAll customType:nil completionHandler:^(NSArray<SBDBaseMessage *> * _Nullable messages, SBDError * _Nullable error) {
+    params.previousResultSize = 30;
+    params.reverse = !initial;
+    params.customType = nil;
+    params.messageType = SBDMessageTypeFilterAll;
+
+    [self.channel getMessagesByTimestamp:timestamp params:params completionHandler:^(NSArray<SBDBaseMessage *> * _Nullable messages, SBDError * _Nullable error) {
+
         if (error != nil) {
             self.isLoading = NO;
             
@@ -300,39 +308,44 @@
         }
         
         if (initial) {
-            [self.channel markAsRead];
-            if (self.delegate != nil && [self.delegate respondsToSelector:@selector(updateGroupChannelList)]) {
-                [self.delegate updateGroupChannelList];
-            }
-            
-            if (messages.count > 0) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.messages removeAllObjects];
-                    
-                    for (SBDBaseMessage *message in messages) {
-                        [self.messages addObject:message];
+            [self.channel markAsReadWithCompletionHandler:^(SBDError *_Nullable error) {
+                if (error != nil) {
+                    // Handle error.
+                    return;
+                }
+                if (self.delegate != nil && [self.delegate respondsToSelector:@selector(updateGroupChannelList)]) {
+                    [self.delegate updateGroupChannelList];
+                }
+                
+                if (messages.count > 0) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.messages removeAllObjects];
                         
-                        if (self.minMessageTimestamp > message.createdAt) {
-                            self.minMessageTimestamp = message.createdAt;
-                        }
-                    }
-                    
-                    if (self.resendableMessages != nil && self.resendableMessages.count > 0) {
-                        for (SBDBaseMessage *message in self.resendableMessages.allValues) {
+                        for (SBDBaseMessage *message in messages) {
                             [self.messages addObject:message];
+                            
+                            if (self.minMessageTimestamp > message.createdAt) {
+                                self.minMessageTimestamp = message.createdAt;
+                            }
                         }
-                    }
-                    
-                    self.initialLoading = YES;
-
-                    [self.messageTableView reloadData];
-                    [self.messageTableView layoutIfNeeded];
-                    
-                    [self scrollToBottomWithForce:YES];
-                    self.initialLoading = NO;
-                    self.isLoading = NO;
-                });
-            }
+                        
+                        if (self.resendableMessages != nil && self.resendableMessages.count > 0) {
+                            for (SBDBaseMessage *message in self.resendableMessages.allValues) {
+                                [self.messages addObject:message];
+                            }
+                        }
+                        
+                        self.initialLoading = YES;
+                        
+                        [self.messageTableView reloadData];
+                        [self.messageTableView layoutIfNeeded];
+                        
+                        [self scrollToBottomWithForce:YES];
+                        self.initialLoading = NO;
+                        self.isLoading = NO;
+                    });
+                }
+            }];
         }
         else {
             if (messages.count > 0) {
@@ -1181,18 +1194,23 @@
 #pragma mark - SBDChannelDelegate
 - (void)channel:(SBDBaseChannel * _Nonnull)sender didReceiveMessage:(SBDBaseMessage * _Nonnull)message {
     if (sender == self.channel) {
-        [self.channel markAsRead];
-        if (self.delegate != nil && [self.delegate respondsToSelector:@selector(updateGroupChannelList)]) {
-            [self.delegate updateGroupChannelList];
-        }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self determineScrollLock];
-            [UIView setAnimationsEnabled:NO];
-            [self.messages addObject:message];
-            [self.messageTableView reloadData];
-            [self scrollToBottomWithForce:NO];
-            [UIView setAnimationsEnabled:YES];
-        });
+        [self.channel markAsReadWithCompletionHandler:^(SBDError *_Nullable error) {
+            if (error != nil) {
+                // Handle error.
+                return;
+            }
+            if (self.delegate != nil && [self.delegate respondsToSelector:@selector(updateGroupChannelList)]) {
+                [self.delegate updateGroupChannelList];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self determineScrollLock];
+                [UIView setAnimationsEnabled:NO];
+                [self.messages addObject:message];
+                [self.messageTableView reloadData];
+                [self scrollToBottomWithForce:NO];
+                [UIView setAnimationsEnabled:YES];
+            });
+        }];
     }
 }
 

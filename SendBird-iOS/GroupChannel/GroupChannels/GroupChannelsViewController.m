@@ -200,7 +200,7 @@
 }
 
 - (NSString *)buildTypingIndicatorLabel:(SBDGroupChannel *)channel {
-    NSArray<SBDMember *> *typingMembers = [channel getTypingMembers];
+    NSArray<SBDUser *> *typingMembers = [channel getTypingUsers];
     if (typingMembers == nil || typingMembers.count == 0) {
         return @"";
     }
@@ -351,13 +351,12 @@
         cell.memberCountLabel.text = [NSString stringWithFormat:@"%ld", channel.memberCount];
     }
     
-    if (channel.isPushEnabled) {
+    if (channel.myPushTriggerOption != SBDGroupChannelPushTriggerOptionOff) {
         cell.notiOffIconImageView.hidden = YES;
-    }
-    else {
+    } else {
         cell.notiOffIconImageView.hidden = NO;
     }
-
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         NSMutableArray<SBDUser *> *members = [[NSMutableArray alloc] init];
         int count = 0;
