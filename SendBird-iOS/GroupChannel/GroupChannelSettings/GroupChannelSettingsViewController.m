@@ -174,7 +174,7 @@
     }
     else if (indexPath.row == 2) {
         GroupChannelSettingsNotificationsTableViewCell *notiCell = [tableView dequeueReusableCellWithIdentifier:@"GroupChannelSettingsNotificationsTableViewCell" forIndexPath:indexPath];
-        [notiCell.notificationSwitch setOn:self.channel.isPushEnabled];
+        [notiCell.notificationSwitch setOn:self.channel.myPushTriggerOption ==  SBDGroupChannelPushTriggerOptionOff ? false : true];
         notiCell.delegate = self;
         cell = (UITableViewCell *)notiCell;
     }
@@ -380,15 +380,17 @@
     });
     
     __weak GroupChannelSettingsViewController *weakSelf = self;
-    [self.channel setPushPreferenceWithPushOn:isOn completionHandler:^(SBDError * _Nullable error) {
+    SBDGroupChannelPushTriggerOption pushOption = isOn ? SBDGroupChannelPushTriggerOptionAll : SBDGroupChannelPushTriggerOptionOff;
+
+    [self.channel setMyPushTriggerOption:pushOption completionHandler:^(SBDError * _Nullable error) {
         GroupChannelSettingsViewController *strongSelf = weakSelf;
         dispatch_async(dispatch_get_main_queue(), ^{
             strongSelf.loadingIndicatorView.hidden = YES;
             [strongSelf.loadingIndicatorView stopAnimating];
-            
             [strongSelf.settingsTableView reloadData];
         });
     }];
+
 }
 
 #pragma mark - GroupChannelCoverImageNameSettingDelegate

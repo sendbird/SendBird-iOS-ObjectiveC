@@ -51,7 +51,7 @@
     // Override point for customization after application launch.
     [SBDOptions setConnectionTimeout:5];
     [SBDOptions setAuthenticationTimeout:10];
-    [SBDMain initWithApplicationId:@"9880C4C1-E6C8-46E8-A8F1-D5890D598C08"];
+    [SBDMain initWithApplicationId:@"9DA1B1F4-0BE6-4DA8-82C5-2E81DAB56F23"];
     
     [SBDMain setAppGroup:@"group.com.sendbird.sample4"];
 
@@ -198,9 +198,6 @@
     NSDictionary *userInfo = response.notification.request.content.userInfo;
     self.pushReceivedGroupChannel = userInfo[@"sendbird"][@"channel"][@"channel_url"];
     
-    [SBDConnectionManager setAuthenticateDelegate:self];
-    [SBDConnectionManager authenticate];
-
     completionHandler();
 }
 

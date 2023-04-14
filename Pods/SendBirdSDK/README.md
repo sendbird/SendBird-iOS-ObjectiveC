@@ -1,4 +1,4 @@
-# [Sendbird](https://sendbird.com) Chat SDK for iOS (Objective-C)
+# [Sendbird](https://sendbird.com) Chat SDK v3 for iOS (Objective-C)
 
 [![Platform](https://img.shields.io/badge/Platform-iOS-orange.svg)](https://cocoapods.org/pods/SendBirdSDK)
 [![Languages](https://img.shields.io/badge/Language-Objective--C%20%7C%20Swift-orange.svg)](https://github.com/sendbird/sendbird-ios-framework)
@@ -6,12 +6,20 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Commercial License](https://img.shields.io/badge/License-Commercial-brightgreen.svg)](https://github.com/sendbird/sendbird-ios-framework/blob/master/LICENSE.md)
 
+## Deprecation Note (v3)
+:warning: Please note that Sendbird’s SDK v3 will be deprecated by **July 2023**. You may still use the older SDKs at your choice, but no new updates or bug fixes will be made to SDK v3.
+
+**We recommend clients to plan their migration to SDK v4 as early as possible as there are breaking changes.** We also provide prioritized support for migration and any issues related to v4. SDK v4 provides far richer and robust features in Websocket, Local caching, Polls, Scheduled Messages, Pinned Message, and many more. So try it out now! ([Chat SDK v4](https://github.com/sendbird/sendbird-chat-sdk-ios/))
+
+<br />
+
 ## Table of contents
 
   1. [Introduction](#introduction)
   1. [Before getting started](#before-getting-started)
   1. [Getting started](#getting-started)
   1. [Sending your first message](#sending-your-first-message)
+  1. [Notice](#notice)
 
 <br />
 
@@ -89,7 +97,7 @@ $ pod init
 On `Podfile`, add the following lines: 
 
 ```bash
-platform :ios, '8.0'
+platform :ios, '9.0'
 use_frameworks!
 
 target YOUR_PROJECT_TARGET do
@@ -232,3 +240,13 @@ Finally, send a message to the channel. There are three types of [messages](http
     }
 }];
 ```
+## Notice
+
+### v.3.1.0 Release (Local Caching)
+
+Local caching has been introduced to the Chat SDK in this v3.1.0 release. The newly embedded local caching functionalities can be enabled through a parameter `useCaching` in the `SBDMain.initWithApplicationId()`. When local caching is turned off, the SDK is backward compatible with v3.0. This means it will work exactly the same as v3.0 and therefore is compatible with SyncManager. However, we strongly recommend you to use the Chat SDK with local caching instead of SyncManager for the following reasons:
+Sendbird Chat SDK with local caching supports new functionalities such as group channel collection, message collection, and message auto-resend.
+SyncManager will be deprecated eventually as the embedded local caching serves as the new and better version of it.
+
+For further information, please see our [Docs](https://sendbird.com/docs/chat/v3/ios/guides/local-caching).
+Additionally, migration guide for clients currently using SyncManager will be available soon.

@@ -132,7 +132,7 @@
 
 
 + (NSString *)buildTypingIndicatorLabel:(SBDGroupChannel *)channel {
-    NSArray<SBDMember *> *typingMembers = [channel getTypingMembers];
+    NSArray<SBDUser *> *typingMembers = [channel getTypingUsers];
     if (typingMembers == nil || typingMembers.count == 0) {
         return @"";
     }
